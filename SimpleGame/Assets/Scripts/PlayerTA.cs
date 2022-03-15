@@ -13,13 +13,14 @@ public class PlayerTA : MonoBehaviour
     public Text txtThrownDarts, txtTotalScore, txtTimeRemaining;
     private float totalScore = 0;
     private float[] score;
-    //public UI_DartScore UIDartS;
     public float totalTime;
     private float timeRemaining;
     [SerializeField] GameObject gameoverPanel;
     private bool gameOver = false;
     private string result = "GAME OVER";
     [SerializeField] TargetTA tarTA;
+    [SerializeField] Text[] txtDS;
+    private int dsNumber = 0;
     
     
     
@@ -76,10 +77,27 @@ public class PlayerTA : MonoBehaviour
     {
         int i = thrownDarts;
         score[i] = scoreAmt;
-        //UIDartS.UpdateDartScore(i, score[i]);
         totalScore += score[i];
         txtTotalScore.text = totalScore.ToString("F1");
         txtThrownDarts.text = thrownDarts.ToString();
+        txtDS[dsNumber].text = score[i].ToString("F1");
+        txtDS[dsNumber].color = Color.blue;
+        txtDS[dsNumber].GetComponentInParent<Image>().color = Color.yellow;
+        if(dsNumber>0)
+        {
+           txtDS[dsNumber-1].color = Color.black;
+           txtDS[dsNumber-1].GetComponentInParent<Image>().color = Color.white;
+        }
+        else
+        {
+            txtDS[txtDS.Length-1].color = Color.black;
+            txtDS[txtDS.Length-1].GetComponentInParent<Image>().color = Color.white;
+        }
+        dsNumber += 1;
+        if(dsNumber == txtDS.Length)
+        {
+            dsNumber = 0;
+        }
         canFire = true;
         sR.enabled = true;
     }

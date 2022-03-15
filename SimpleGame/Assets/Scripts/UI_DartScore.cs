@@ -28,5 +28,7 @@ public class UI_DartScore : MonoBehaviour
     public void UpdateDartScore(int i, float scoreAmt)
     {
         txtDartScore[i].text = scoreAmt.ToString("F1");
+        txtDartScore[i].color = Color.white;
+        txtDartScore[i].GetComponentInParent<Image>().color = Color.blue;
     }
 }

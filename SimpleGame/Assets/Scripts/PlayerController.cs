@@ -91,7 +91,6 @@ public class PlayerController : MonoBehaviour
     private void GameOver()
     {
         gameOver = true;
-        //tarScr.horMoveSpeed = 0f;
         tarScr.stopMoving = true;
         gameoverPanel.SetActive(true);
         gameoverPanel.transform.GetChild(0).GetComponent<Text>().text = result;

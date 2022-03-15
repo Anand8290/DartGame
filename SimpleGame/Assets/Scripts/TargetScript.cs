@@ -9,7 +9,7 @@ public class TargetScript : MonoBehaviour
     public GameObject Player;
     private float score, targetLength;
     private float changeSpeedTime, changeSpeedTimeInterval = 5f;
-    private float randomSpeed = 1;
+    private float randomSpeed = 1, randomHeight = 3.5f;
     public bool stopMoving = false;
 
     void Start()
@@ -28,8 +28,10 @@ public class TargetScript : MonoBehaviour
         }
         else
         {
-            changeSpeedTimeInterval = Time.time + Random.Range(3, 6f);
-            randomSpeed = Random.Range(0.5f, 5f);
+            changeSpeedTimeInterval = Time.time + Random.Range(2, 6f);
+            randomSpeed = Random.Range(0.5f, 2f);
+            randomHeight = Random.Range(1.0f, 3.5f);
+            transform.position = new Vector3(transform.position.x, randomHeight, 0);
         }
         }
         
@@ -74,6 +76,10 @@ public class TargetScript : MonoBehaviour
 
         if(other.gameObject.tag == "dart")
         {
+            if(transform.childCount == 1)
+            {
+                Destroy(transform.GetChild(0).gameObject);
+            }
             other.gameObject.GetComponent<DartController>().HitTarget();
             other.gameObject.transform.SetParent(this.gameObject.transform);
             hitPos = Mathf.Abs(other.gameObject.transform.localPosition.x);
