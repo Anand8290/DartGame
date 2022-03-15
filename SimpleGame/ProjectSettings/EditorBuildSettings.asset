@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: 0b27e7e0d96e11049ac9463ee94af7dc
+  - enabled: 1
+    path: Assets/Scenes/TimeAttack.unity
+    guid: 46ddfcc1a0c916b48ab136f32a256141
+  - enabled: 1
+    path: Assets/Scenes/CareerMode.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

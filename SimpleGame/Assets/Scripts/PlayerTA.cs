@@ -3,32 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerTA : MonoBehaviour
 {
     public bool canFire = true;
     public GameObject DartPrefab;
-    public int totalDarts = 3;
-    int currentDarts;
+    public int totalDarts = 100;
+    int thrownDarts = 0;
     [SerializeField] SpriteRenderer sR;
-    public Text txtCurrentDarts, txtTotalScore, txtWinScore;
+    public Text txtThrownDarts, txtTotalScore, txtTimeRemaining;
     private float totalScore = 0;
     private float[] score;
-    public UI_DartScore UIDartS;
-    public float winScore;
+    //public UI_DartScore UIDartS;
+    public float totalTime;
+    private float timeRemaining;
     [SerializeField] GameObject gameoverPanel;
     private bool gameOver = false;
-    private string result = "LOSE";
-    [SerializeField] TargetScript tarScr;
+    private string result = "GAME OVER";
+    [SerializeField] TargetTA tarTA;
     
     
     
     void Start()
     {
        SetupDartSprite();
-       currentDarts = totalDarts;
-       txtCurrentDarts.text = currentDarts.ToString();
+       timeRemaining = totalTime;
+       txtThrownDarts.text = thrownDarts.ToString();
        score = new float[totalDarts];
-       txtWinScore.text = " / " + winScore;
+       txtTimeRemaining.text = timeRemaining.ToString("F0");
     }
 
     void Update()
@@ -40,6 +41,17 @@ public class PlayerController : MonoBehaviour
             Throw();
         }
         }*/
+
+        if (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime;
+            txtTimeRemaining.text = timeRemaining.ToString("F0");
+        }
+        else
+        {
+            GameOver();
+        }
+
     }
 
     private void Throw()
@@ -47,7 +59,7 @@ public class PlayerController : MonoBehaviour
         Instantiate(DartPrefab, transform.position, Quaternion.identity);
         sR.enabled = false;
         canFire = false;
-        
+        thrownDarts += 1;
     }
 
 
@@ -62,48 +74,30 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateScore(float scoreAmt)
     {
-        int i = totalDarts-currentDarts;
+        int i = thrownDarts;
         score[i] = scoreAmt;
-        UIDartS.UpdateDartScore(i, score[i]);
+        //UIDartS.UpdateDartScore(i, score[i]);
         totalScore += score[i];
         txtTotalScore.text = totalScore.ToString("F1");
-        currentDarts -= 1;
-        txtCurrentDarts.text = currentDarts.ToString();
+        txtThrownDarts.text = thrownDarts.ToString();
         canFire = true;
-
-        if(totalScore >= winScore)
-        {
-            result = "WINNER";
-            GameOver();
-        }
-
-        if(currentDarts>0)
-        {
-            sR.enabled = true;
-        }
-        else
-        {
-            GameOver();
-        }
-
+        sR.enabled = true;
     }
 
     private void GameOver()
     {
         gameOver = true;
-        //tarScr.horMoveSpeed = 0f;
-        tarScr.stopMoving = true;
+        tarTA.stopMoving = true;
+        tarTA.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameoverPanel.SetActive(true);
         gameoverPanel.transform.GetChild(0).GetComponent<Text>().text = result;
-        if(result=="WINNER")
-        gameoverPanel.transform.GetChild(0).GetComponent<Text>().color = Color.red;
     }
 
     public void ThrowUIButton()
     {
-        if(canFire & currentDarts > 0 & !gameOver)
+        if(canFire & !gameOver)
         {
             Throw();
         }
-    }
+}
 }

@@ -10,4 +10,14 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void LoadLevel(int sceneID)
+    {
+        SceneManager.LoadScene(sceneID);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

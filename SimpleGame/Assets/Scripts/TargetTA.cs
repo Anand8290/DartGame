@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetScript : MonoBehaviour
+public class TargetTA : MonoBehaviour
 {
-    //public float horMoveSpeed;
     private int direction = 1;
     public GameObject Player;
     private float score, targetLength;
@@ -35,23 +34,6 @@ public class TargetScript : MonoBehaviour
         
     }
 
-    /*private void Oscillate()
-    {
-        
-        transform.Translate(Time.deltaTime * horMoveSpeed * direction, 0, 0);
-        //transform.position += new Vector3(Time.deltaTime * horMoveSpeed * direction, 0, 0);
-        
-        if(transform.position.x <= -1.8f)
-        {
-            direction = 1;
-        }
-       
-        if (transform.position.x >= 1.8f)
-        {
-            direction = -1;
-        }        
-    }*/
-
     private void OscillateRandom(float speedAmt)
     {
         
@@ -79,7 +61,8 @@ public class TargetScript : MonoBehaviour
             hitPos = Mathf.Abs(other.gameObject.transform.localPosition.x);
             hitPos = Mathf.Clamp(hitPos, 0, targetLength);
             score = 10 * (targetLength - hitPos)/targetLength;
-            Player.GetComponent<PlayerController>().UpdateScore(score);
+            Player.GetComponent<PlayerTA>().UpdateScore(score);
+            Destroy(other.gameObject);
         }
     }
 }
