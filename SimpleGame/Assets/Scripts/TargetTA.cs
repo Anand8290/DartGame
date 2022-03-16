@@ -29,8 +29,7 @@ public class TargetTA : MonoBehaviour
         {
             changeSpeedTimeInterval = Time.time + Random.Range(2, 6f);
             randomSpeed = Random.Range(0.5f, 2f);
-            randomHeight = Random.Range(1.0f, 3.5f);
-            transform.position = new Vector3(transform.position.x, randomHeight, 0);
+            
         }
         }
         
@@ -44,11 +43,15 @@ public class TargetTA : MonoBehaviour
         if(transform.position.x <= -1.8f)
         {
             direction = 1;
+            randomHeight = Random.Range(1.0f, 3.5f);
+            transform.position = new Vector3(transform.position.x, randomHeight, 0);
         }
        
         if (transform.position.x >= 1.8f)
         {
             direction = -1;
+            randomHeight = Random.Range(1.0f, 3.5f);
+            transform.position = new Vector3(transform.position.x, randomHeight, 0);
         }        
     }
 
