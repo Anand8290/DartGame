@@ -55,11 +55,13 @@ public class GooglePlayService : MonoBehaviour
                 Debug.Log("Signed In");
                 txtConsoleTxt.text = "Signed In";
                 signedIn = true;
+                PlayerPrefs.SetInt("GPGS", 1);
                 break;
 
                 default:
                 Debug.Log("Sign In Failed");
                 txtConsoleTxt.text = "Sign In Failed";
+                PlayerPrefs.SetInt("GPGS", 0);
                 break;
             }
 
@@ -81,6 +83,7 @@ public class GooglePlayService : MonoBehaviour
         }
         
         PlayGamesPlatform.Instance.SignOut();
+        PlayerPrefs.SetInt("GPGS", 0);
         txtConsoleTxt.text = "Signed Out";
     }
 
@@ -105,22 +108,7 @@ public class GooglePlayService : MonoBehaviour
         PlayGamesPlatform.Instance.ShowLeaderboardUI(GPGSIds.leaderboard_time_attack_leader);
     }
 
-    public void ShowAcheivements()
-    {
-        if(!isInitialized)
-        {
-            Debug.Log("GPS is NOT Initialized");
-            txtConsoleTxt.text = "GPS is NOT Initialized";
-            return;
-        }
-        
-        if(!signedIn)
-        {
-            return;
-        }
-        // show achievements UI
-        Social.ShowAchievementsUI();
-    }
+    
 
     public void SendScoreToLeaderboard()
     {
@@ -142,7 +130,25 @@ public class GooglePlayService : MonoBehaviour
         });
     }
 
-    public void UnlockAcheivements()
+    public void ShowAcheivements()
+    {
+        if(!isInitialized)
+        {
+            Debug.Log("GPS is NOT Initialized");
+            txtConsoleTxt.text = "GPS is NOT Initialized";
+            return;
+        }
+        
+        if(!signedIn)
+        {
+            return;
+        }
+        // show achievements UI
+        Social.ShowAchievementsUI();
+    }
+
+
+    public void UnlockAcheivement(string _achievement)
     {
         if(!isInitialized)
         {
@@ -156,7 +162,46 @@ public class GooglePlayService : MonoBehaviour
             return;
         }
         // unlock achievement (achievement ID "Cfjewijawiu_QA")
-        Social.ReportProgress(GPGSIds.achievement_newbie, 100.0f, (bool success) => {
+        Social.ReportProgress(_achievement, 100.0f, (bool success) => {
+        // handle success or failure
+        });
+    }
+
+
+    public void UnlockIncrementalAcheivement(string _achievement)
+    {
+        if(!isInitialized)
+        {
+            Debug.Log("GPS is NOT Initialized");
+            txtConsoleTxt.text = "GPS is NOT Initialized";
+            return;
+        }
+        
+        if(!signedIn)
+        {
+            return;
+        }
+        // increment achievement (achievement ID "Cfjewijawiu_QA") by 5 steps
+        PlayGamesPlatform.Instance.IncrementAchievement(_achievement, 1, (bool success) => {
+            // handle success or failure
+        });
+    }
+
+    public void RevealAcheivement(string _achievement)
+    {
+        if(!isInitialized)
+        {
+            Debug.Log("GPS is NOT Initialized");
+            txtConsoleTxt.text = "GPS is NOT Initialized";
+            return;
+        }
+        
+        if(!signedIn)
+        {
+            return;
+        }
+        // Reveal achievement (achievement ID "Cfjewijawiu_QA")
+        Social.ReportProgress(_achievement, 0.0f, (bool success) => {
         // handle success or failure
         });
     }

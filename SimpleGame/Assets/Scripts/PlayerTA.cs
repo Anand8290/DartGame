@@ -15,13 +15,16 @@ public class PlayerTA : MonoBehaviour
     private float[] score;
     public float totalTime;
     private float timeRemaining;
-    [SerializeField] GameObject gameoverPanel;
+    [SerializeField] GameObject gameoverPanel, buttonHsLB;
     private bool gameOver = false;
     private string result = "GAME OVER";
     [SerializeField] TargetTA tarTA;
     [SerializeField] Text[] txtDS;
+    [SerializeField] Text txtHsTA;
     private int dsNumber = 0;
-    
+    private int gamesPlayedTA;
+    private float highScoreTA;
+    [SerializeField] GpgsAchievement gAchievement;
     
     
     void Start()
@@ -31,26 +34,30 @@ public class PlayerTA : MonoBehaviour
        txtThrownDarts.text = thrownDarts.ToString();
        score = new float[totalDarts];
        txtTimeRemaining.text = timeRemaining.ToString("F0");
+       gamesPlayedTA = PlayerPrefs.GetInt("GP_TA", 0);
+       highScoreTA = PlayerPrefs.GetFloat("HS_TA", 0);
     }
 
     void Update()
     {
-        /*if(!gameOver)
+        if(!gameOver)
         {
-        if(Input.GetButtonDown("Fire1") & canFire & currentDarts > 0)
-        {
-            Throw();
-        }
-        }*/
+            /*if(Input.GetButtonDown("Fire1") & canFire & currentDarts > 0)
+            {
+                Throw();
+            }
+            }*/
 
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-            txtTimeRemaining.text = timeRemaining.ToString("F0");
-        }
-        else
-        {
-            GameOver();
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+                txtTimeRemaining.text = timeRemaining.ToString("F0");
+            }
+            else
+            {
+                GameOver();
+            }
+
         }
 
     }
@@ -80,6 +87,8 @@ public class PlayerTA : MonoBehaviour
         totalScore += score[i];
         txtTotalScore.text = totalScore.ToString("F1");
         txtThrownDarts.text = thrownDarts.ToString();
+        
+        // Score update on UI of last 3 throws
         txtDS[dsNumber].text = score[i].ToString("F1");
         txtDS[dsNumber].color = Color.blue;
         txtDS[dsNumber].GetComponentInParent<Image>().color = Color.yellow;
@@ -109,6 +118,30 @@ public class PlayerTA : MonoBehaviour
         tarTA.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameoverPanel.SetActive(true);
         gameoverPanel.transform.GetChild(0).GetComponent<Text>().text = result;
+        if(totalScore > highScoreTA)
+        {
+            highScoreTA = totalScore;
+            PlayerPrefs.SetFloat("HS_TA", highScoreTA);
+            buttonHsLB.SetActive(true);
+        }
+        else
+        {
+            buttonHsLB.SetActive(false);
+        }
+        txtHsTA.text = "High Score : " + highScoreTA.ToString("F1");
+        gamesPlayedTA += 1;
+        PlayerPrefs.SetInt("GP_TA", gamesPlayedTA);
+        if(gamesPlayedTA >= 1)
+        {
+            gAchievement.UnlockAcheivement(GPGSIds.achievement_newbie);
+        }
+        if(totalScore >= 50)
+        {
+            gAchievement.UnlockAcheivement(GPGSIds.achievement_rookie);
+        }
+        Debug.Log(PlayerPrefs.GetInt("GP_TA", 0));
+
+        
     }
 
     public void ThrowUIButton()
@@ -117,5 +150,10 @@ public class PlayerTA : MonoBehaviour
         {
             Throw();
         }
-}
+    }
+
+    public void ButtonSendHighScore()
+    {
+        gAchievement.SendScoreToLeaderboard(highScoreTA);
+    }
 }
