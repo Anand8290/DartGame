@@ -1,0 +1,9 @@
+lastUpgrade=01014
+proj.pluginVersion=0.10.14
+proj.AppId=665896751647
+and.BundleId=com.AK2DSTUDIOS.DartsMaster
+proj.classDir=Assets
+proj.ConstantsClassName=GPGSIds
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--Google+Play+game+services+IDs.+Save+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--app_id--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e665896751647%3c%2fstring%3e%0d%0a++%3c%21--package_name--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.AK2DSTUDIOS.DartsMaster%3c%2fstring%3e%0d%0a++%3c%21--achievement+Newbie--%3e%0d%0a++%3cstring+name%3d%22achievement_newbie%22+translatable%3d%22false%22%3eCgkIn6So1LATEAIQAg%3c%2fstring%3e%0d%0a++%3c%21--achievement+Rookie--%3e%0d%0a++%3cstring+name%3d%22achievement_rookie%22+translatable%3d%22false%22%3eCgkIn6So1LATEAIQAw%3c%2fstring%3e%0d%0a++%3c%21--leaderboard+Time+Attack+Leader--%3e%0d%0a++%3cstring+name%3d%22leaderboard_time_attack_leader%22+translatable%3d%22false%22%3eCgkIn6So1LATEAIQAQ%3c%2fstring%3e%0d%0a%3c%2fresources%3e
+and.ClientId=665896751647-cbo1i6r3moikdiega4vdghq4lvq2813v.apps.googleusercontent.com
+android.SetupDone=true
