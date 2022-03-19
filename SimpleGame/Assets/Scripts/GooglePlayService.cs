@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
+using GooglePlayGames.BasicApi.SavedGame;
 using UnityEngine.UI;
+using System;
 
 public class GooglePlayService : MonoBehaviour
 {
@@ -21,30 +23,17 @@ public class GooglePlayService : MonoBehaviour
 
     void Initialize()
     {
-        config = new PlayGamesClientConfiguration.Builder().Build();
+        config = new PlayGamesClientConfiguration.Builder().EnableSavedGames().Build();
         PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.Activate();
         isInitialized = true;
         txtConsoleTxt.text = "GPS Initialized";
         SignInWithGoogle();
-
     }
 
     public void SignInWithGoogle()
     {
         
-        /*if(!isInitialized)
-        {
-            Debug.Log("GPS is NOT Initialized");
-            txtConsoleTxt.text = "GPS is NOT Initialized";
-            return;
-        }
-        
-        if(signedIn)
-        {
-            return;
-        }*/
-
         // authenticate user:
         PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (result) =>
         {
@@ -108,28 +97,6 @@ public class GooglePlayService : MonoBehaviour
         PlayGamesPlatform.Instance.ShowLeaderboardUI(GPGSIds.leaderboard_time_attack_leader);
     }
 
-    
-
-    public void SendScoreToLeaderboard()
-    {
-        if(!isInitialized)
-        {
-            Debug.Log("GPS is NOT Initialized");
-            txtConsoleTxt.text = "GPS is NOT Initialized";
-            return;
-        }
-        
-        if(!signedIn)
-        {
-            return;
-        }
-        // post score 12345 to leaderboard ID "Cfji293fjsie_QA")
-        long score = int.Parse(highScoreTA.ToString());
-        Social.ReportScore(score, GPGSIds.leaderboard_time_attack_leader, (bool success) => {
-        // handle success or failure
-        });
-    }
-
     public void ShowAcheivements()
     {
         if(!isInitialized)
@@ -147,62 +114,112 @@ public class GooglePlayService : MonoBehaviour
         Social.ShowAchievementsUI();
     }
 
+    
 
-    public void UnlockAcheivement(string _achievement)
+    #region SavedGames
+
+    private bool isSaving;
+    [SerializeField] Text txtTestData, txtTestDebug;
+    
+    public void OpenSave(bool saving)
     {
-        if(!isInitialized)
+        txtTestDebug.text = "Open Save : " + saving;
+        if(Social.localUser.authenticated)
         {
-            Debug.Log("GPS is NOT Initialized");
-            txtConsoleTxt.text = "GPS is NOT Initialized";
-            return;
+            txtTestDebug.text = "Local user authenticated";
+            isSaving = saving;
+            ((PlayGamesPlatform)Social.Active).SavedGame.OpenWithAutomaticConflictResolution("MyFileName", DataSource.ReadCacheOrNetwork, ConflictResolutionStrategy.UseLongestPlaytime, OnSavedGameOpened);
         }
-        
-        if(!signedIn)
+        else
         {
-            return;
+            txtTestDebug.text = "Local user authentication failed!!!";
         }
-        // unlock achievement (achievement ID "Cfjewijawiu_QA")
-        Social.ReportProgress(_achievement, 100.0f, (bool success) => {
-        // handle success or failure
-        });
     }
 
-
-    public void UnlockIncrementalAcheivement(string _achievement)
+    private void OnSavedGameOpened(SavedGameRequestStatus status, ISavedGameMetadata meta)
     {
-        if(!isInitialized)
+        if (status == SavedGameRequestStatus.Success)
         {
-            Debug.Log("GPS is NOT Initialized");
-            txtConsoleTxt.text = "GPS is NOT Initialized";
-            return;
+            // handle reading or writing of saved game.
+            txtTestDebug.text = "Found Saved Game";
+            if(isSaving)    
+            {
+                //we are saving through UI Button
+                txtTestDebug.text = "Saving Game Data.....";
+                byte[] myData = System.Text.ASCIIEncoding.ASCII.GetBytes(GetSaveString());
+                SavedGameMetadataUpdate updatedMetadata = new SavedGameMetadataUpdate.Builder().WithUpdatedDescription("Saved game at " + DateTime.Now.ToString()).Build();
+                ((PlayGamesPlatform)Social.Active).SavedGame.CommitUpdate(meta, updatedMetadata, myData, OnSavedGameWritten);
+                txtTestDebug.text = "my Data Commited to Cloud....";
+            }
+            else 
+            {
+                //we are loading through UI Button
+                txtTestDebug.text = "Loading Game Data....";
+                ((PlayGamesPlatform)Social.Active).SavedGame.ReadBinaryData(meta, OnSavedGameDataRead);
+            }
         }
         
-        if(!signedIn)
+        else  
         {
-            return;
+            txtTestDebug.text = "Error Opening Save File!!!";
         }
-        // increment achievement (achievement ID "Cfjewijawiu_QA") by 5 steps
-        PlayGamesPlatform.Instance.IncrementAchievement(_achievement, 1, (bool success) => {
-            // handle success or failure
-        });
     }
 
-    public void RevealAcheivement(string _achievement)
+    private void OnSavedGameWritten(SavedGameRequestStatus status, ISavedGameMetadata meta)
     {
-        if(!isInitialized)
+        if (status == SavedGameRequestStatus.Success)
         {
-            Debug.Log("GPS is NOT Initialized");
-            txtConsoleTxt.text = "GPS is NOT Initialized";
-            return;
+            // handle reading or writing of saved game.
+            Debug.Log("Successfuly saved to Cloud");
+            txtTestDebug.text = "Successfuly Saved to Cloud";
         }
-        
-        if(!signedIn)
+        else
         {
-            return;
+            // handle error
+            Debug.Log("Failed to save in Cloud");
+            txtTestDebug.text = "Error Saving to Cloud";
         }
-        // Reveal achievement (achievement ID "Cfjewijawiu_QA")
-        Social.ReportProgress(_achievement, 0.0f, (bool success) => {
-        // handle success or failure
-        });
     }
+
+    private string GetSaveString()
+    {
+        string dataToSave = PlayerPrefs.GetFloat("HS_TA", 0).ToString("F1");
+        //float testData2 = PlayerPrefs.GetFloat("HS_TA", 0);
+
+        //dataToSave += testData1.ToString();
+        //dataToSave += "|";
+        //dataToSave += testData2.ToString("F1");
+        //txtTestDebug.text = "Returning Data to Save : " + dataToSave;
+        return dataToSave;
+    }
+
+    private void OnSavedGameDataRead(SavedGameRequestStatus status, byte[] data)
+    {
+        if (status == SavedGameRequestStatus.Success)
+        {
+            // handle processing the byte array data
+            string loadedData = System.Text.ASCIIEncoding.ASCII.GetString(data);
+            txtTestDebug.text = "Loaded raw data from Cloud : " + loadedData;
+            LoadSaveString(loadedData);
+        }
+        else
+        {
+            // handle error
+            txtTestDebug.text = "NO Save Data found!!!";
+        }
+    }
+
+    private void LoadSaveString(string cloudData)
+    {
+        txtTestDebug.text = "try to load cloud data....";
+        //string[] cloudStringArr = cloudData.Split('|');
+        //Debug.Log("my Save and Loaded Data 1 : " + cloudStringArr[0]);
+        //Debug.Log("my Save and Loaded Data 2 : " + cloudStringArr[1]);
+        txtTestDebug.text = "Converted Cloud data loading....";
+        //txtTestData.text = cloudStringArr[0] + " & " + cloudStringArr[1];
+        txtTestData.text = cloudData;
+        txtTestDebug.text = "Converted Cloud data loaded successfully";
+    }
+    #endregion
+
 }
