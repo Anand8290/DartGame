@@ -1,0 +1,888 @@
+fileFormatVersion: 2
+guid: 989e0d1c786770f4b94c98133ab8a4a9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1116133598833930609
+    second: master sprite-01_0
+  - first:
+      213: 7873996520779207201
+    second: master sprite-01_2
+  - first:
+      213: -787060307825582979
+    second: master sprite-01_3
+  - first:
+      213: -2213922688177858721
+    second: master sprite-01_4
+  - first:
+      213: 5611022558722488566
+    second: master sprite-01_5
+  - first:
+      213: -3999528954350836843
+    second: master sprite-01_6
+  - first:
+      213: -3816355627052053515
+    second: master sprite-01_7
+  - first:
+      213: -563499678141125236
+    second: master sprite-01_8
+  - first:
+      213: 861120941123706875
+    second: master sprite-01_9
+  - first:
+      213: 3635898018514144709
+    second: master sprite-01_10
+  - first:
+      213: -548549645037710779
+    second: master sprite-01_11
+  - first:
+      213: 9084735892532181573
+    second: master sprite-01_13
+  - first:
+      213: -7576916112997797745
+    second: master sprite-01_14
+  - first:
+      213: 2659205075092823066
+    second: master sprite-01_15
+  - first:
+      213: 4714183156617709597
+    second: master sprite-01_16
+  - first:
+      213: -3552774242585618051
+    second: master sprite-01_17
+  - first:
+      213: -4271856205044175086
+    second: master sprite-01_18
+  - first:
+      213: -8271969756676315896
+    second: master sprite-01_19
+  - first:
+      213: 5275270727640074629
+    second: master sprite-01_20
+  - first:
+      213: -976827756635424177
+    second: master sprite-01_21
+  - first:
+      213: -2342617650167201380
+    second: master sprite-01_22
+  - first:
+      213: 4450964716462233990
+    second: master sprite-01_23
+  - first:
+      213: -245848666834535453
+    second: master sprite-01_24
+  - first:
+      213: 8883241970368714563
+    second: master sprite-01_25
+  - first:
+      213: -108470350722991930
+    second: master sprite-01_26
+  - first:
+      213: -6226235319752300493
+    second: master sprite-01_27
+  - first:
+      213: 1756379833655397752
+    second: master sprite-01_28
+  - first:
+      213: -1922091538801159832
+    second: master sprite-01_29
+  - first:
+      213: 2450241244872095229
+    second: master sprite-01_30
+  - first:
+      213: 8428178597747809734
+    second: master sprite-01_31
+  - first:
+      213: 2716310170463083828
+    second: master sprite-01_32
+  - first:
+      213: 5620920202697049017
+    second: master sprite-01_33
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: master sprite-01_0
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 3863
+        width: 1248
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171ff58389d4d7f00800000000000000
+      internalID: 1116133598833930609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_2
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 3946
+        width: 272
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 122d4bf0e1e064d60800000000000000
+      internalID: 7873996520779207201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_3
+      rect:
+        serializedVersion: 2
+        x: 2127
+        y: 3921
+        width: 326
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7c1f3fe1dcc315f0800000000000000
+      internalID: -787060307825582979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_4
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2867
+        width: 1309
+        height: 1309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f571bf28b019641e0800000000000000
+      internalID: -2213922688177858721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_5
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 3490
+        width: 980
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f87b57e94b5edd40800000000000000
+      internalID: 5611022558722488566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_6
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 3570
+        width: 272
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 593670f3b91de78c0800000000000000
+      internalID: -3999528954350836843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_7
+      rect:
+        serializedVersion: 2
+        x: 2127
+        y: 3545
+        width: 326
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fbcff0f6c4990bc0800000000000000
+      internalID: -3816355627052053515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_8
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 3118
+        width: 478
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8de95d370c0e28f0800000000000000
+      internalID: -563499678141125236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_9
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 3189
+        width: 272
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bff145cfee053fb00800000000000000
+      internalID: 861120941123706875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_10
+      rect:
+        serializedVersion: 2
+        x: 2127
+        y: 3164
+        width: 326
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cd0519ebfd457230800000000000000
+      internalID: 3635898018514144709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_11
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 2711
+        width: 1465
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5425cd111092368f0800000000000000
+      internalID: -548549645037710779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_13
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 2800
+        width: 297
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a3f984927731e70800000000000000
+      internalID: 9084735892532181573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_14
+      rect:
+        serializedVersion: 2
+        x: 2114
+        y: 2775
+        width: 352
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8035df70f269d690800000000000000
+      internalID: -7576916112997797745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_15
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 2382
+        width: 811
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1cd2dd3de467e420800000000000000
+      internalID: 2659205075092823066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_16
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 2420
+        width: 171
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d180458aa942c6140800000000000000
+      internalID: 4714183156617709597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_17
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 2415
+        width: 196
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d79d68756a202bec0800000000000000
+      internalID: -3552774242585618051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_18
+      rect:
+        serializedVersion: 2
+        x: 1587
+        y: 2420
+        width: 105
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f2bce2a6157b4c0800000000000000
+      internalID: -4271856205044175086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_19
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 2393
+        width: 204
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805a884455f043d80800000000000000
+      internalID: -8271969756676315896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_20
+      rect:
+        serializedVersion: 2
+        x: 1993
+        y: 2399
+        width: 142
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 589c007f6c6853940800000000000000
+      internalID: 5275270727640074629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_21
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 2395
+        width: 192
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4af00fa45c9172f0800000000000000
+      internalID: -976827756635424177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_22
+      rect:
+        serializedVersion: 2
+        x: 2390
+        y: 2399
+        width: 186
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c91493da8a95d7fd0800000000000000
+      internalID: -2342617650167201380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_23
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 2399
+        width: 188
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6895780d3d005cd30800000000000000
+      internalID: 4450964716462233990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_24
+      rect:
+        serializedVersion: 2
+        x: 2817
+        y: 2399
+        width: 195
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ebf2d8a0f1969cf0800000000000000
+      internalID: -245848666834535453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_25
+      rect:
+        serializedVersion: 2
+        x: 3034
+        y: 2399
+        width: 172
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3471ba1b18d974b70800000000000000
+      internalID: 8883241970368714563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_26
+      rect:
+        serializedVersion: 2
+        x: 3235
+        y: 2399
+        width: 188
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c87e7c6ac2ae7ef0800000000000000
+      internalID: -108470350722991930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_27
+      rect:
+        serializedVersion: 2
+        x: 3458
+        y: 2395
+        width: 195
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3386c26f6f7f799a0800000000000000
+      internalID: -6226235319752300493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_28
+      rect:
+        serializedVersion: 2
+        x: 3687
+        y: 2399
+        width: 192
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87d80bb272aef5810800000000000000
+      internalID: 1756379833655397752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_29
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 1947
+        width: 844
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86119fbddeb5355e0800000000000000
+      internalID: -1922091538801159832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_30
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 1968
+        width: 280
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df5bc962e61010220800000000000000
+      internalID: 2450241244872095229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_31
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 1968
+        width: 280
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cdde4eb7c7e6f470800000000000000
+      internalID: 8428178597747809734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_32
+      rect:
+        serializedVersion: 2
+        x: 1951
+        y: 1968
+        width: 280
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43d9b3a55b542b520800000000000000
+      internalID: 2716310170463083828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: master sprite-01_33
+      rect:
+        serializedVersion: 2
+        x: 2311
+        y: 1968
+        width: 276
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b30398b425810e40800000000000000
+      internalID: 5620920202697049017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

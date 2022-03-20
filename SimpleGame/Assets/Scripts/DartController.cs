@@ -19,7 +19,7 @@ public class DartController : MonoBehaviour
     {
         speed = 0;
         rb.isKinematic = false;
-        //GetComponent<BoxCollider2D>().enabled = false;
+        GetComponentInChildren<TrailRenderer>().enabled = false;
     }
 
 }

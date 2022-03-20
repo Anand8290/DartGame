@@ -17,7 +17,6 @@ public class PlayerTA : MonoBehaviour
     private float timeRemaining;
     [SerializeField] GameObject gameoverPanel, buttonHsLB;
     private bool gameOver = false;
-    private string result = "GAME OVER";
     [SerializeField] TargetTA tarTA;
     [SerializeField] Text[] txtDS;
     [SerializeField] Text txtHsTA;
@@ -117,7 +116,6 @@ public class PlayerTA : MonoBehaviour
         tarTA.stopMoving = true;
         tarTA.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameoverPanel.SetActive(true);
-        gameoverPanel.transform.GetChild(0).GetComponent<Text>().text = result;
         if(totalScore > highScoreTA)
         {
             highScoreTA = totalScore;
@@ -138,10 +136,7 @@ public class PlayerTA : MonoBehaviour
         if(totalScore >= 50)
         {
             gAchievement.UnlockAcheivement(GPGSIds.achievement_rookie);
-        }
-        Debug.Log(PlayerPrefs.GetInt("GP_TA", 0));
-
-        
+        }        
     }
 
     public void ThrowUIButton()
