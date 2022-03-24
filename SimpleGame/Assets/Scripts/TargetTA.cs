@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TargetTA : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class TargetTA : MonoBehaviour
     [SerializeField] float minHeight = 1.0f, maxHeight = 2.75f, minSpeed = 0.5f, maxSpeed = 2.0f;
     float ScreenEdge, speedAdjustForScreen;
     public bool stopMoving = false;
-    private float refScreenBoundX = 2.307692f;
+    private float refScreenBoundX = 2.307692f; //Reference value of 1080p resolution oneplus 6T
+    [SerializeField] Image appreciateImg;
+    [SerializeField] Sprite app_1, app_2;
     
     void Awake()
     {
@@ -41,7 +44,6 @@ public class TargetTA : MonoBehaviour
         {
             changeSpeedTimeInterval = Time.time + Random.Range(2, 6f);
             randomSpeed = Random.Range(minSpeed, maxSpeed);
-            
         }
         }
         
@@ -83,7 +85,26 @@ public class TargetTA : MonoBehaviour
             hitPos = Mathf.Abs(other.gameObject.transform.localPosition.x);
             hitPos = Mathf.Clamp(hitPos, 0, targetLength);
             score = 10 * (targetLength - hitPos)/targetLength;
+            
+            if(score>=9.9f)
+            {
+                appreciateImg.sprite = app_2;
+                StartCoroutine(Appreciate());
+            }
+            else if(score>=9.0f)
+            {
+                appreciateImg.sprite = app_1;
+                StartCoroutine(Appreciate());
+            }
+            
             Player.GetComponent<PlayerTA>().UpdateScore(score);
         }
+    }
+
+    IEnumerator Appreciate()
+    {
+        appreciateImg.transform.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        appreciateImg.transform.gameObject.SetActive(false);
     }
 }

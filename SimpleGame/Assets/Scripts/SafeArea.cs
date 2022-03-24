@@ -23,9 +23,6 @@ public class SafeArea : MonoBehaviour
         maxAnchor.y /= Screen.height;
 
         rectTransform.anchorMin = minAnchor;
-        rectTransform.anchorMax = maxAnchor;
-
-        Debug.Log(Screen.width);
-        Debug.Log(Screen.height);
+        rectTransform.anchorMax = maxAnchor;   
     }
 }
