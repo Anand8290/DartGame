@@ -24,6 +24,9 @@ public class PlayerTA : MonoBehaviour
     private int gamesPlayedTA;
     private float highScoreTA;
     [SerializeField] GpgsAchievement gAchievement;
+    public bool startGame = false;
+    [SerializeField] GameManager gameMGR;
+    [SerializeField] Text txtlastScore, txtFinalScore;
     
     
     void Start()
@@ -39,7 +42,7 @@ public class PlayerTA : MonoBehaviour
 
     void Update()
     {
-        if(!gameOver)
+        if(!gameOver & startGame)
         {
             /*if(Input.GetButtonDown("Fire1") & canFire & currentDarts > 0)
             {
@@ -87,6 +90,8 @@ public class PlayerTA : MonoBehaviour
         txtTotalScore.text = totalScore.ToString("F1");
         txtThrownDarts.text = thrownDarts.ToString();
         
+        //txtlastScore.text = score[i].ToString("F1");
+
         // Score update on UI of last 3 throws
         txtDS[dsNumber].text = score[i].ToString("F1");
         txtDS[dsNumber].color = Color.blue;
@@ -113,19 +118,18 @@ public class PlayerTA : MonoBehaviour
     private void GameOver()
     {
         gameOver = true;
-        tarTA.stopMoving = true;
+        /*tarTA.stopMoving = true;
         tarTA.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        gameoverPanel.SetActive(true);
+        gameoverPanel.SetActive(true);*/
+        gameMGR.GameOver();
         if(totalScore > highScoreTA)
         {
             highScoreTA = totalScore;
             PlayerPrefs.SetFloat("HS_TA", highScoreTA);
-            buttonHsLB.SetActive(true);
+            //buttonHsLB.SetActive(true);
+            gameMGR.ScoredHigh();
         }
-        else
-        {
-            buttonHsLB.SetActive(false);
-        }
+        txtFinalScore.text = "Score : " + totalScore.ToString("F1");
         txtHsTA.text = "High Score : " + highScoreTA.ToString("F1");
         gamesPlayedTA += 1;
         PlayerPrefs.SetInt("GP_TA", gamesPlayedTA);
@@ -141,7 +145,7 @@ public class PlayerTA : MonoBehaviour
 
     public void ThrowUIButton()
     {
-        if(canFire & !gameOver)
+        if(startGame & canFire & !gameOver)
         {
             Throw();
         }

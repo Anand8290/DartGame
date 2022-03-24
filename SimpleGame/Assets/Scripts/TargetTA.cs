@@ -9,12 +9,23 @@ public class TargetTA : MonoBehaviour
     private float score, targetLength = 0.625f;
     private float changeSpeedTime, changeSpeedTimeInterval = 5f;
     private float randomSpeed = 1, randomHeight = 3.5f;
-    [SerializeField] float minHeight = 1.0f, maxHeight = 2.75f, ScreenEdge = 1.55f, minSpeed = 0.5f, maxSpeed = 2.0f;
+    [SerializeField] float minHeight = 1.0f, maxHeight = 2.75f, minSpeed = 0.5f, maxSpeed = 2.0f;
+    float ScreenEdge, speedAdjustForScreen;
     public bool stopMoving = false;
+    private float refScreenBoundX = 2.307692f;
+    
+    void Awake()
+    {
+        Vector2 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        float targetHalfSize = GetComponent<BoxCollider2D>().bounds.size.x * 0.5f;
+        targetLength = (GetComponent<BoxCollider2D>().bounds.size.x / transform.localScale.x)/2;
+        ScreenEdge = screenBounds.x - targetHalfSize;
+        speedAdjustForScreen = screenBounds.x / refScreenBoundX;
+    }
 
     void Start()
     {
-        targetLength = (GetComponent<BoxCollider2D>().bounds.size.x / transform.localScale.x)/2;
+        
     }
 
 
@@ -39,7 +50,7 @@ public class TargetTA : MonoBehaviour
     private void OscillateRandom(float speedAmt)
     {
         
-        transform.Translate(Time.deltaTime * speedAmt * direction, 0, 0);
+        transform.Translate(Time.deltaTime * speedAmt * speedAdjustForScreen * direction, 0, 0);
         
         if(transform.position.x <= -ScreenEdge)
         {

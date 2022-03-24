@@ -7,14 +7,15 @@ public class TargetScript : MonoBehaviour
     //public float horMoveSpeed;
     private int direction = 1;
     public GameObject Player;
-    private float score, targetLength;
+    private float score, targetLength = 0.625f;
     private float changeSpeedTime, changeSpeedTimeInterval = 5f;
     private float randomSpeed = 1, randomHeight = 3.5f;
+    [SerializeField] float minHeight = 1.0f, maxHeight = 2.75f, ScreenEdge = 1.55f, minSpeed = 0.5f, maxSpeed = 2.0f;
     public bool stopMoving = false;
 
     void Start()
     {
-        targetLength = 0.5f;        
+        targetLength = (GetComponent<BoxCollider2D>().bounds.size.x / transform.localScale.x)/2;       
     }
 
 
@@ -29,7 +30,7 @@ public class TargetScript : MonoBehaviour
         else
         {
             changeSpeedTimeInterval = Time.time + Random.Range(2, 6f);
-            randomSpeed = Random.Range(0.5f, 2f);
+            randomSpeed = Random.Range(minSpeed, maxSpeed);
         }
         }
     }
@@ -56,17 +57,17 @@ public class TargetScript : MonoBehaviour
         
         transform.Translate(Time.deltaTime * speedAmt * direction, 0, 0);
         
-        if(transform.position.x <= -1.8f)
+        if(transform.position.x <= -ScreenEdge)
         {
             direction = 1;
-            randomHeight = Random.Range(1.0f, 3.5f);
+            randomHeight = Random.Range(minHeight, maxHeight);
             transform.position = new Vector3(transform.position.x, randomHeight, 0);
         }
        
-        if (transform.position.x >= 1.8f)
+        if (transform.position.x >= ScreenEdge)
         {
             direction = -1;
-            randomHeight = Random.Range(1.0f, 3.5f);
+            randomHeight = Random.Range(minHeight, maxHeight);
             transform.position = new Vector3(transform.position.x, randomHeight, 0);
         }        
     }
