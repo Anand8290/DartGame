@@ -14,8 +14,7 @@ public class TargetTA : MonoBehaviour
     float ScreenEdge, speedAdjustForScreen;
     public bool stopMoving = false;
     private float refScreenBoundX = 2.307692f; //Reference value of 1080p resolution oneplus 6T
-    [SerializeField] Image appreciateImg;
-    [SerializeField] Sprite app_1, app_2;
+    [SerializeField] AppreciateManager appreciateMgr;
     
     void Awake()
     {
@@ -25,12 +24,6 @@ public class TargetTA : MonoBehaviour
         ScreenEdge = screenBounds.x - targetHalfSize;
         speedAdjustForScreen = screenBounds.x / refScreenBoundX;
     }
-
-    void Start()
-    {
-        
-    }
-
 
     void Update()
     {
@@ -88,23 +81,16 @@ public class TargetTA : MonoBehaviour
             
             if(score>=9.9f)
             {
-                appreciateImg.sprite = app_2;
-                StartCoroutine(Appreciate());
+                appreciateMgr.Appreciate(1);
             }
-            else if(score>=9.0f)
+            else if(score>=8.5f)
             {
-                appreciateImg.sprite = app_1;
-                StartCoroutine(Appreciate());
+                appreciateMgr.Appreciate(2);
             }
             
             Player.GetComponent<PlayerTA>().UpdateScore(score);
         }
     }
 
-    IEnumerator Appreciate()
-    {
-        appreciateImg.transform.gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        appreciateImg.transform.gameObject.SetActive(false);
-    }
+    
 }
