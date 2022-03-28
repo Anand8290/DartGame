@@ -649,6 +649,10 @@ PrefabInstance:
       propertyPath: pc
       value: 
       objectReference: {fileID: 2042854996}
+    - target: {fileID: 3530553036906827171, guid: 02808e9b8eef6864c80207b7d58f304a, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3530553036906827172, guid: 02808e9b8eef6864c80207b7d58f304a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
