@@ -15,6 +15,7 @@ public class TargetC : MonoBehaviour
     private bool stopMoving = false;
     private float refScreenBoundX = 2.307692f; //Reference value of 1080p resolution oneplus 6T
     [SerializeField] AppreciateManager appreciateMgr;
+    [SerializeField] GameObject PopupScore;
     
     void Awake()
     {
@@ -27,6 +28,8 @@ public class TargetC : MonoBehaviour
         // Subscribe to Game Evenets
         GameEvents.current.OnStartGame += StartGame;
         GameEvents.current.OnStopGame += StopGame;
+        GameEvents.current.OnPauseGame += PauseGame;
+        GameEvents.current.OnResumeGame += ResumeGame;
     }
     
     void Start()
@@ -43,6 +46,16 @@ public class TargetC : MonoBehaviour
     {
         stopMoving = true;
         gameObject.SetActive(false);
+    }
+
+    private void PauseGame()
+    {
+        stopMoving = true;
+    }
+
+    private void ResumeGame()
+    {
+        stopMoving = false;
     }
 
     void Update()
@@ -108,6 +121,9 @@ public class TargetC : MonoBehaviour
                 appreciateMgr.Appreciate(2);
             }
             
+            PopupScore.SetActive(true);
+            PopupScore.GetComponent<Text>().text = score.ToString("F1");
+            PopupScore.GetComponent<PopupScore>().Animate();
             Player.GetComponent<PlayerC>().UpdateScore(score);
         }
     }

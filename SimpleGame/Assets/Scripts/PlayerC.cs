@@ -13,7 +13,7 @@ public class PlayerC : MonoBehaviour
     public Text txtDartsRemaining, txtTotalScore, txtWinScore;
     public float totalScore = 0, winScore;
     private float[] score;
-    private bool startGame = false;
+    private bool startGame = false, pauseGame = false;
     [SerializeField] Text[] txtDS;
     private int dsNumber = 0;
     [SerializeField] CareerManager careerMGR;
@@ -34,6 +34,9 @@ public class PlayerC : MonoBehaviour
         // Subscribe to Game Evenets
         GameEvents.current.OnStartGame += StartGame;
         GameEvents.current.OnStopGame += StopGame;
+        GameEvents.current.OnPauseGame += PauseGame;
+        GameEvents.current.OnResumeGame += ResumeGame;
+
     }
 
     private void StartGame()
@@ -44,6 +47,16 @@ public class PlayerC : MonoBehaviour
     private void StopGame()
     {
         gameObject.SetActive(false);
+    }
+
+    private void PauseGame()
+    {
+        pauseGame = true;
+    }
+
+    private void ResumeGame()
+    {
+        pauseGame = false;
     }
 
     private void SetupDartSprite()
@@ -99,7 +112,7 @@ public class PlayerC : MonoBehaviour
 
     public void ThrowUIButton()
     {
-        if(startGame & canFire)
+        if(startGame & canFire & !pauseGame)
         {
             Throw();
         }

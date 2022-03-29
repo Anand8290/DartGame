@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    
+    [SerializeField] GameObject PausePanelUI;
+    [SerializeField] GameObject PauseButton;
+
+    public static bool GameIsPaused = false;
+    
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -13,6 +19,7 @@ public class UIManager : MonoBehaviour
 
     public void LoadLevel(int sceneID)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneID);
     }
 
@@ -20,4 +27,25 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void PauseGame()
+    {
+        GameIsPaused = true;
+        GameEvents.current.PauseGameEvent();
+        PauseButton.SetActive(false);
+        PausePanelUI.SetActive(true);
+        PausePanelUI.GetComponent<PausePanel>().Animate();
+        Time.timeScale = 0;
+        
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        PausePanelUI.SetActive(false);
+        PauseButton.SetActive(true);
+        GameIsPaused = false;
+        GameEvents.current.ResumeGameEvent();
+    }
+
 }

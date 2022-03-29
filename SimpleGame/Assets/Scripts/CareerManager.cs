@@ -9,7 +9,7 @@ public class CareerManager : MonoBehaviour
    
     private bool gameOver = false;
     private bool startGame = false;
-    [SerializeField] GameObject gameoverPanel, ThrowButton;
+    [SerializeField] GameObject gameoverPanel, ThrowButton, PauseButton;
     [SerializeField] GameObject player, target;
     private float totalScore;
     [SerializeField] GameObject[] StarsImage;
@@ -27,6 +27,7 @@ public class CareerManager : MonoBehaviour
         gameOver = true;
         GameEvents.current.StopGameEvent();
         ThrowButton.SetActive(false);
+        PauseButton.SetActive(false);
 
         gameoverPanel.SetActive(true);
         if(winGame)

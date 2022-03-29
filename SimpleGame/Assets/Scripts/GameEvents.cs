@@ -9,6 +9,8 @@ public class GameEvents : MonoBehaviour
     
     public event Action OnStartGame;
     public event Action OnStopGame;
+    public event Action OnPauseGame;
+    public event Action OnResumeGame;
 
     void Awake()
     {
@@ -23,6 +25,16 @@ public class GameEvents : MonoBehaviour
     public void StopGameEvent()
     {
         OnStopGame?.Invoke();
+    }
+
+    public void PauseGameEvent()
+    {
+        OnPauseGame?.Invoke();
+    }
+
+    public void ResumeGameEvent()
+    {
+        OnResumeGame?.Invoke();
     }
 
 }
