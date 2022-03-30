@@ -7,12 +7,13 @@ public class UI_DartScoreMgr : MonoBehaviour
 {
     private int totalDarts;
     public GameObject UIDartScorePrefab;
-    public PlayerC playerScript;
     private Text[] txtDartScore;
+
+    [SerializeField] LevelDBLoader levelDBLoader;
     
     void Start()
     {
-        totalDarts = playerScript.totalDarts;
+        totalDarts = levelDBLoader.darts;
         txtDartScore = new Text[totalDarts];
 
         GameObject DS;
@@ -25,9 +26,9 @@ public class UI_DartScoreMgr : MonoBehaviour
         }
     }
 
-    public void UpdateDartScore(int i, float scoreAmt)
+    public void UpdateDartScore(int i, int scoreAmt)
     {
-        txtDartScore[i].text = scoreAmt.ToString("F1");
+        txtDartScore[i].text = scoreAmt.ToString();
         txtDartScore[i].color = Color.black;
         txtDartScore[i].GetComponentInParent<Image>().color = Color.yellow;
     }

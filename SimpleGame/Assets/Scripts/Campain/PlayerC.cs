@@ -7,36 +7,40 @@ public class PlayerC : MonoBehaviour
 {
     public bool canFire = true;
     public GameObject DartPrefab;
-    public int totalDarts;
+    private int totalDarts;
     private int thrownDarts = 0, dartsRemaining;
     [SerializeField] SpriteRenderer sR;
     public Text txtDartsRemaining, txtTotalScore, txtWinScore;
-    public float totalScore = 0, winScore;
-    private float[] score;
+    private int winScore;
+    private int liveScore;
+    private int[] score;
     private bool startGame = false, pauseGame = false;
     [SerializeField] Text[] txtDS;
-    private int dsNumber = 0;
     [SerializeField] CareerManager careerMGR;
     [SerializeField] UI_DartScoreMgr UIDartS;
     private bool winGame = false;
     private int star1, star2, star3, star;
+
+    [SerializeField] LevelDBLoader levelDBLoader;
     
     
     void Awake()
     {
         
         SetupDartSprite();
+        totalDarts = levelDBLoader.darts;
+        winScore = levelDBLoader.score;
+        liveScore = winScore;
         dartsRemaining = totalDarts;
         txtDartsRemaining.text = dartsRemaining.ToString();
-        score = new float[totalDarts];
-        txtWinScore.text = winScore.ToString();
+        score = new int[totalDarts];
+        txtWinScore.text = liveScore.ToString();
         
         // Subscribe to Game Evenets
         GameEvents.current.OnStartGame += StartGame;
         GameEvents.current.OnStopGame += StopGame;
         GameEvents.current.OnPauseGame += PauseGame;
         GameEvents.current.OnResumeGame += ResumeGame;
-
     }
 
     private void StartGame()
@@ -76,24 +80,18 @@ public class PlayerC : MonoBehaviour
         
     }
 
-    public void UpdateScore(float scoreAmt)
+    public void UpdateScore(int scoreAmt)
     {
-        /*int i = thrownDarts;
-        score[i] = scoreAmt;
-        totalScore += score[i];
-        txtTotalScore.text = totalScore.ToString("F1");
-        txtDartsRemaining.text = totalDarts.ToString();*/
-        
-        
         score[thrownDarts] = scoreAmt;
         UIDartS.UpdateDartScore(thrownDarts, score[thrownDarts]);
-        totalScore += score[thrownDarts];
-        txtTotalScore.text = totalScore.ToString("F1");
+        liveScore -= score[thrownDarts];
+        liveScore = Mathf.Clamp(liveScore, 0, winScore);
+        txtWinScore.text = liveScore.ToString();
         thrownDarts += 1;
         dartsRemaining -= 1;
         txtDartsRemaining.text = dartsRemaining.ToString();
         
-        if(totalScore >= winScore)
+        if(liveScore <= 0)
         {
             winGame = true;
             GameOver();

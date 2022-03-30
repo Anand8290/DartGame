@@ -7,7 +7,8 @@ public class TargetC : MonoBehaviour
 {
     private int direction = 1;
     public GameObject Player;
-    private float score, targetLength = 0.625f;
+    private int score;
+    private float targetLength = 0.625f;
     private float changeSpeedTime, changeSpeedTimeInterval = 5f;
     private float randomSpeed = 1, randomHeight = 3.5f;
     [SerializeField] float minHeight = 1.0f, maxHeight = 2.75f, minSpeed = 0.5f, maxSpeed = 2.0f;
@@ -32,32 +33,6 @@ public class TargetC : MonoBehaviour
         GameEvents.current.OnResumeGame += ResumeGame;
     }
     
-    void Start()
-    {
-        
-    }
-
-    private void StartGame()
-    {
-        stopMoving = false;
-    }
-
-    private void StopGame()
-    {
-        stopMoving = true;
-        gameObject.SetActive(false);
-    }
-
-    private void PauseGame()
-    {
-        stopMoving = true;
-    }
-
-    private void ResumeGame()
-    {
-        stopMoving = false;
-    }
-
     void Update()
     {
         if(!stopMoving)
@@ -72,7 +47,6 @@ public class TargetC : MonoBehaviour
             randomSpeed = Random.Range(minSpeed, maxSpeed);
         }
         }
-        
     }
 
     private void OscillateRandom(float speedAmt)
@@ -110,21 +84,43 @@ public class TargetC : MonoBehaviour
             other.gameObject.GetComponent<DartController>().HitTarget();
             hitPos = Mathf.Abs(other.gameObject.transform.localPosition.x);
             hitPos = Mathf.Clamp(hitPos, 0, targetLength);
-            score = 10 * (targetLength - hitPos)/targetLength;
+            score = Mathf.RoundToInt(10 * (targetLength - hitPos)/targetLength);
             
-            if(score>=9.9f)
+            if(score==10)
             {
                 appreciateMgr.Appreciate(1);
             }
-            else if(score>=8.5f)
+            else if(score==9)
             {
                 appreciateMgr.Appreciate(2);
             }
             
             PopupScore.SetActive(true);
-            PopupScore.GetComponent<Text>().text = score.ToString("F1");
+            PopupScore.GetComponent<Text>().text = score.ToString();
             PopupScore.GetComponent<PopupScore>().Animate();
             Player.GetComponent<PlayerC>().UpdateScore(score);
         }
+    }
+
+    // Game Event functions
+    private void StartGame()
+    {
+        stopMoving = false;
+    }
+
+    private void StopGame()
+    {
+        stopMoving = true;
+        gameObject.SetActive(false);
+    }
+
+    private void PauseGame()
+    {
+        stopMoving = true;
+    }
+
+    private void ResumeGame()
+    {
+        stopMoving = false;
     }
 }
