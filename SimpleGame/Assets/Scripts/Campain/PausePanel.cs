@@ -8,7 +8,7 @@ public class PausePanel : MonoBehaviour
     
     public void Animate()
     {
-        Panel.transform.localScale = new Vector3(0.1f, 0.1f, 1f);
+        Panel.transform.localScale = new Vector3(0f, 0f, 1f);
         LeanTween.scale(Panel, new Vector3(1f, 1f, 1f), 1f).setDelay(0.1f).setEase(LeanTweenType.easeOutElastic).setIgnoreTimeScale(true);
     }
 }

@@ -6,13 +6,15 @@ public class DartController : MonoBehaviour
 {
     
     [SerializeField] float speed = 1f;
+    float windSpeed = -1f;
     Rigidbody2D rb;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.up * speed;
-        //Destroy(this.gameObject, 5f);
+        //rb.velocity = Vector2.up * speed;
+        //rb.velocity = new Vector2(windSpeed, speed);
+        //Fly(windSpeed);
     }
 
     public void HitTarget()
@@ -20,6 +22,11 @@ public class DartController : MonoBehaviour
         speed = 0;
         rb.isKinematic = false;
         GetComponentInChildren<TrailRenderer>().enabled = false;
+    }
+
+    public void Fly(float windSpeed)
+    {
+        rb.velocity = new Vector2(windSpeed, speed);
     }
 
 }

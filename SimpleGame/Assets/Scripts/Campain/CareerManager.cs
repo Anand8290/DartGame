@@ -11,9 +11,6 @@ public class CareerManager : MonoBehaviour
     private bool startGame = false;
     [SerializeField] GameObject gameoverPanel, ThrowButton, PauseButton;
     [SerializeField] GameObject player, target;
-    private float totalScore;
-    [SerializeField] GameObject[] StarsImage;
-    [SerializeField] Text txtResult;
     [SerializeField] GpgsAchievement gAchievement;
 
     void Start()
@@ -22,28 +19,13 @@ public class CareerManager : MonoBehaviour
     }
 
 
-    public void GameOver(bool winGame, int star)
+    public void GameOver(bool winGame, int star, int levelCoins)
     {
         gameOver = true;
         GameEvents.current.StopGameEvent();
         ThrowButton.SetActive(false);
         PauseButton.SetActive(false);
-
-        gameoverPanel.SetActive(true);
-        if(winGame)
-        {
-            txtResult.text = "WINNER";
-        }
-        else
-        {
-            txtResult.text = "TRY AGAIN";
-        }
-
-        for(int i = 0; i < star; i++)
-        {
-            StarsImage[i].SetActive(true);
-        }
-
+        gameoverPanel.GetComponent<GameOverPanel>().Animate(winGame, star, levelCoins);
     }
 
 

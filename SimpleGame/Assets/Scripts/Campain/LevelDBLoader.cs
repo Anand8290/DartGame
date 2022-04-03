@@ -11,7 +11,7 @@ public class LevelDBLoader : MonoBehaviour
     private int totalLevels;
     
     [HideInInspector]
-    public int score, darts;
+    public int score, darts, rewardCoins;
 
     void Awake()
     {
@@ -24,6 +24,7 @@ public class LevelDBLoader : MonoBehaviour
         
         score = currentLevel.score;
         darts = currentLevel.darts;
+        rewardCoins = currentLevel.rewardCoins;
     }
    
 }

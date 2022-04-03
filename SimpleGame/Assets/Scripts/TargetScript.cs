@@ -82,7 +82,7 @@ public class TargetScript : MonoBehaviour
             {
                 Destroy(transform.GetChild(0).gameObject);
             }
-            other.gameObject.GetComponent<DartController>().HitTarget();
+            other.gameObject.GetComponent<DartControlTA>().HitTarget();
             other.gameObject.transform.SetParent(this.gameObject.transform);
             hitPos = Mathf.Abs(other.gameObject.transform.localPosition.x);
             hitPos = Mathf.Clamp(hitPos, 0, targetLength);

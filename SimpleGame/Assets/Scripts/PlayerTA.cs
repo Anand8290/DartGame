@@ -18,6 +18,7 @@ public class PlayerTA : MonoBehaviour
     [SerializeField] Text[] txtDS;
     private int dsNumber = 0;
     [SerializeField] GameManager gameMGR;
+    [SerializeField] WindEffectTA windEffectTA;
     
     
     void Awake()
@@ -45,7 +46,9 @@ public class PlayerTA : MonoBehaviour
 
     private void Throw()
     {
-        Instantiate(DartPrefab, transform.position, Quaternion.identity);
+        //Instantiate(DartPrefab, transform.position, Quaternion.identity);
+        GameObject newDart =  Instantiate(DartPrefab, transform.position, Quaternion.identity);
+        newDart.GetComponent<DartControlTA>().Fly(windEffectTA.windSpeed);
         sR.enabled = false;
         canFire = false;
         thrownDarts += 1;
@@ -77,6 +80,7 @@ public class PlayerTA : MonoBehaviour
         }
         canFire = true;
         sR.enabled = true;
+        windEffectTA.CreateRandomWind();
     }
 
     public void ThrowUIButton()

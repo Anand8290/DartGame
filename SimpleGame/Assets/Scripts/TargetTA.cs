@@ -74,7 +74,7 @@ public class TargetTA : MonoBehaviour
                 Destroy(transform.GetChild(0).gameObject);
             }
             other.gameObject.transform.SetParent(this.gameObject.transform);
-            other.gameObject.GetComponent<DartController>().HitTarget();
+            other.gameObject.GetComponent<DartControlTA>().HitTarget();
             hitPos = Mathf.Abs(other.gameObject.transform.localPosition.x);
             hitPos = Mathf.Clamp(hitPos, 0, targetLength);
             score = 10 * (targetLength - hitPos)/targetLength;

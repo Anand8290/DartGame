@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: LevelDataBase
   m_EditorClassIdentifier: 
   levels:
-  - score: 40
-    darts: 6
-  - score: 70
+  - score: 18
+    darts: 3
+    rewardCoins: 30
+  - score: 79
     darts: 10
+    rewardCoins: 50

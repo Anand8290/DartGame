@@ -19,14 +19,14 @@ public class PlayerC : MonoBehaviour
     [SerializeField] CareerManager careerMGR;
     [SerializeField] UI_DartScoreMgr UIDartS;
     private bool winGame = false;
-    private int star1, star2, star3, star;
-
+    private int star1, star2, star3, star = 0;
     [SerializeField] LevelDBLoader levelDBLoader;
+    CoinSystem coinSystem;
+    [SerializeField] WindEffect windEffect;
     
     
     void Awake()
     {
-        
         SetupDartSprite();
         totalDarts = levelDBLoader.darts;
         winScore = levelDBLoader.score;
@@ -35,6 +35,7 @@ public class PlayerC : MonoBehaviour
         txtDartsRemaining.text = dartsRemaining.ToString();
         score = new int[totalDarts];
         txtWinScore.text = liveScore.ToString();
+        coinSystem = GetComponent<CoinSystem>();
         
         // Subscribe to Game Evenets
         GameEvents.current.OnStartGame += StartGame;
@@ -74,10 +75,10 @@ public class PlayerC : MonoBehaviour
 
     private void Throw()
     {
-        Instantiate(DartPrefab, transform.position, Quaternion.identity);
+        GameObject newDart =  Instantiate(DartPrefab, transform.position, Quaternion.identity);
+        newDart.GetComponent<DartController>().Fly(windEffect.windSpeed);
         sR.enabled = false;
         canFire = false;
-        
     }
 
     public void UpdateScore(int scoreAmt)
@@ -96,15 +97,15 @@ public class PlayerC : MonoBehaviour
             winGame = true;
             GameOver();
         }
-
-        if(dartsRemaining>0)
+        else if(dartsRemaining <= 0)
         {
-            sR.enabled = true;
-            canFire = true;
+            GameOver();
         }
         else
         {
-            GameOver();
+            sR.enabled = true;
+            canFire = true;
+            windEffect.CreateRandomWind();
         }
     }
 
@@ -119,7 +120,8 @@ public class PlayerC : MonoBehaviour
     private void GameOver()
     {
         CalculateStar();
-        careerMGR.GameOver(winGame, star);
+        coinSystem.CalculateCoins(star);
+        careerMGR.GameOver(winGame, star, coinSystem.levelCoins);
     }
 
     private void CalculateStar()
@@ -151,4 +153,5 @@ public class PlayerC : MonoBehaviour
             star = 0;
         }
     }
+    
 }
