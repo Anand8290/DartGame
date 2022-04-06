@@ -8,8 +8,6 @@ public class SafeArea : MonoBehaviour
     Rect safeArea;
     Vector2 minAnchor, maxAnchor;
 
-
-    // Update is called once per frame
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();

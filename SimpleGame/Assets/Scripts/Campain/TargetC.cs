@@ -17,6 +17,7 @@ public class TargetC : MonoBehaviour
     private float refScreenBoundX = 2.307692f; //Reference value of 1080p resolution oneplus 6T
     [SerializeField] AppreciateManager appreciateMgr;
     [SerializeField] GameObject PopupScore;
+    private Animator animator; 
     
     void Awake()
     {
@@ -33,6 +34,11 @@ public class TargetC : MonoBehaviour
         GameEvents.current.OnResumeGame += ResumeGame;
     }
     
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Update()
     {
         if(!stopMoving)
@@ -99,6 +105,8 @@ public class TargetC : MonoBehaviour
             PopupScore.GetComponent<Text>().text = score.ToString();
             PopupScore.GetComponent<PopupScore>().Animate();
             Player.GetComponent<PlayerC>().UpdateScore(score);
+
+            animator.SetTrigger("Hit");
         }
     }
 

@@ -5,16 +5,17 @@ using UnityEngine;
 public class DartController : MonoBehaviour
 {
     
-    [SerializeField] float speed = 1f;
-    float windSpeed = -1f;
+    private float speed = 1f;
+    private float windSpeed = -1f;
     Rigidbody2D rb;
+    DartDBLoader dartDB;
+    SpriteRenderer sR;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        //rb.velocity = Vector2.up * speed;
-        //rb.velocity = new Vector2(windSpeed, speed);
-        //Fly(windSpeed);
+        dartDB = GetComponent<DartDBLoader>();   
+        sR = GetComponent<SpriteRenderer>();    
     }
 
     public void HitTarget()
@@ -25,8 +26,15 @@ public class DartController : MonoBehaviour
     }
 
     public void Fly(float windSpeed)
-    {
+    {   
         rb.velocity = new Vector2(windSpeed, speed);
+    }
+
+    public void UpdateDart(int dartIndex)
+    {   
+        dartDB.LoadDartFromDB(dartIndex);
+        speed = dartDB.speed;
+        sR.sprite = dartDB.sprite;
     }
 
 }

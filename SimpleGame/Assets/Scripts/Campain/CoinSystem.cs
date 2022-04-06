@@ -22,5 +22,6 @@ public class CoinSystem : MonoBehaviour
     {
         levelCoins = maxCoins * star/3;
         totalCoins += levelCoins;
+        PlayerPrefs.SetInt("COINS", totalCoins);
     }
 }

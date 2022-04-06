@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d23f87ed5b86414998d8a4182e0532e, type: 3}
+  m_Name: DartDatabase
+  m_EditorClassIdentifier: 
+  Darts:
+  - speed: 6
+    sprite: {fileID: 21300000, guid: aa8ab27a96db66841a3edb204640d200, type: 3}
+    price: 0
+  - speed: 8
+    sprite: {fileID: 21300000, guid: 6ed8094f641b01841bd7e66d7196551d, type: 3}
+    price: 5
+  - speed: 10
+    sprite: {fileID: 21300000, guid: 591d3be7baab1854c906906c1d7f7c73, type: 3}
+    price: 10
