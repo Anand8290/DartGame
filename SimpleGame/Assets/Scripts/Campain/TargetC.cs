@@ -39,7 +39,7 @@ public class TargetC : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Update()
+    /*void Update()
     {
         if(!stopMoving)
         {
@@ -53,12 +53,30 @@ public class TargetC : MonoBehaviour
             randomSpeed = Random.Range(minSpeed, maxSpeed);
         }
         }
+    }*/
+
+    void FixedUpdate()
+    {
+        if(!stopMoving)
+        {
+        if(Time.fixedTime < changeSpeedTimeInterval)
+        {  
+          OscillateRandom(randomSpeed);
+        }
+        else
+        {
+            changeSpeedTimeInterval = Time.fixedTime + Random.Range(2, 6f);
+            randomSpeed = Random.Range(minSpeed, maxSpeed);
+        }
+        }
     }
+
+
 
     private void OscillateRandom(float speedAmt)
     {
         
-        transform.Translate(Time.deltaTime * speedAmt * speedAdjustForScreen * direction, 0, 0);
+        transform.Translate(Time.fixedDeltaTime * speedAmt * speedAdjustForScreen * direction, 0, 0);
         
         if(transform.position.x <= -ScreenEdge)
         {

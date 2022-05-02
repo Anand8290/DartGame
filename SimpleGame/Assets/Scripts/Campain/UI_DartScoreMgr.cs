@@ -29,7 +29,7 @@ public class UI_DartScoreMgr : MonoBehaviour
     public void UpdateDartScore(int i, int scoreAmt)
     {
         txtDartScore[i].text = scoreAmt.ToString();
-        txtDartScore[i].color = Color.black;
-        txtDartScore[i].GetComponentInParent<Image>().color = Color.yellow;
+        txtDartScore[i].color = Color.yellow;
+        //txtDartScore[i].GetComponentInParent<Image>().color = Color.yellow;
     }
 }

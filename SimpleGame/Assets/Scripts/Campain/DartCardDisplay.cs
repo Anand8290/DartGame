@@ -15,15 +15,20 @@ public class DartCardDisplay : MonoBehaviour
     public int price;
     
     [HideInInspector]
+    public string dartName;
+
+    [HideInInspector]
     public int speed;
     [HideInInspector]
     public Sprite sprite;
+    
 
     [Header ("Card Setup")]
     [SerializeField] Image cardDartImage;
     [SerializeField] Image cardDartSpeedImage;
     [SerializeField] Text cardDartSpeed;
     [SerializeField] Text cardDartPrice;
+    [SerializeField] Text cardDartName;
 
     [SerializeField] GameObject SelectButton, BuyButton;
 
@@ -50,12 +55,14 @@ public class DartCardDisplay : MonoBehaviour
         speed = dart.speed;
         sprite = dart.sprite;
         price = dart.price;
+        dartName = dart.name;
 
         cardDartImage.sprite = sprite;
         cardDartSpeed.text = speed.ToString() + " / " + maxSpeed.ToString();
         float fillAmt = (float) speed / (float) maxSpeed;
         cardDartSpeedImage.fillAmount = fillAmt;
         cardDartPrice.text = price.ToString();
+        cardDartName.text = dartName;
     }
 
     public void GoNext()

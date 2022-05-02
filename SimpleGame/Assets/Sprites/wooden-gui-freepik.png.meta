@@ -1,0 +1,960 @@
+fileFormatVersion: 2
+guid: d2f325a270a758441b7d6aa14c154a24
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5390752976199857765
+    second: wooden-gui-freepik_0
+  - first:
+      213: -2409076677367611448
+    second: wooden-gui-freepik_1
+  - first:
+      213: 8607722555480176151
+    second: wooden-gui-freepik_2
+  - first:
+      213: -2775242764984076298
+    second: wooden-gui-freepik_3
+  - first:
+      213: -6605766560583934843
+    second: wooden-gui-freepik_4
+  - first:
+      213: -2614722829324888081
+    second: wooden-gui-freepik_5
+  - first:
+      213: 719927881672679079
+    second: wooden-gui-freepik_6
+  - first:
+      213: -6319371638974005219
+    second: wooden-gui-freepik_7
+  - first:
+      213: 794470480793307648
+    second: wooden-gui-freepik_8
+  - first:
+      213: 3644017808933413540
+    second: wooden-gui-freepik_9
+  - first:
+      213: -7811224066638998955
+    second: wooden-gui-freepik_10
+  - first:
+      213: 8233219457766473604
+    second: wooden-gui-freepik_11
+  - first:
+      213: 956479895721122875
+    second: wooden-gui-freepik_12
+  - first:
+      213: -5575141902144839471
+    second: wooden-gui-freepik_13
+  - first:
+      213: 4309189282374391772
+    second: wooden-gui-freepik_14
+  - first:
+      213: -6852486825831171892
+    second: wooden-gui-freepik_15
+  - first:
+      213: -5989139266810525611
+    second: wooden-gui-freepik_16
+  - first:
+      213: 7415987062949499228
+    second: wooden-gui-freepik_17
+  - first:
+      213: -733468857841239519
+    second: wooden-gui-freepik_18
+  - first:
+      213: 916910029376174537
+    second: wooden-gui-freepik_19
+  - first:
+      213: -4510992551193478425
+    second: wooden-gui-freepik_20
+  - first:
+      213: 5235679892822530969
+    second: wooden-gui-freepik_21
+  - first:
+      213: -6218329850528262271
+    second: wooden-gui-freepik_22
+  - first:
+      213: -5173353172942730836
+    second: wooden-gui-freepik_23
+  - first:
+      213: 7428661142928935591
+    second: wooden-gui-freepik_24
+  - first:
+      213: 5386968373653459382
+    second: wooden-gui-freepik_25
+  - first:
+      213: 7793498519939763280
+    second: wooden-gui-freepik_26
+  - first:
+      213: 7974136628364592910
+    second: wooden-gui-freepik_27
+  - first:
+      213: -9204929584471634669
+    second: wooden-gui-freepik_28
+  - first:
+      213: -6334861494936218017
+    second: wooden-gui-freepik_29
+  - first:
+      213: -5624580406954000175
+    second: wooden-gui-freepik_30
+  - first:
+      213: -1357895317439823509
+    second: wooden-gui-freepik_31
+  - first:
+      213: 3316966391182866450
+    second: wooden-gui-freepik_32
+  - first:
+      213: -8589923214300456777
+    second: wooden-gui-freepik_33
+  - first:
+      213: -2237981053338500363
+    second: wooden-gui-freepik_34
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wooden-gui-freepik_0
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 896
+        width: 409
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 566b54a354dcfca40800000000000000
+      internalID: 5390752976199857765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_1
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 598
+        width: 484
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf33d8968d319ed0800000000000000
+      internalID: -2409076677367611448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 836
+        width: 409
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 716738cfe06c47770800000000000000
+      internalID: 8607722555480176151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_3
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 776
+        width: 409
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f7b6abb86b5c79d0800000000000000
+      internalID: -2775242764984076298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_4
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 716
+        width: 409
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c9d3fdf4a9354a0800000000000000
+      internalID: -6605766560583934843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_5
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 656
+        width: 409
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe75cfba073a6bbd0800000000000000
+      internalID: -2614722829324888081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_6
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 597
+        width: 409
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aedff21892bdf900800000000000000
+      internalID: 719927881672679079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_7
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 456
+        width: 317
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10c64fc9f41d48a0800000000000000
+      internalID: -6319371638974005219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_8
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 456
+        width: 279
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 25, y: 22, z: 20, w: 16}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00a083861b6860b00800000000000000
+      internalID: 794470480793307648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_9
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 456
+        width: 278
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a26ca0f3e6229230800000000000000
+      internalID: 3644017808933413540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_10
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 323
+        width: 87
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5521007d815f89390800000000000000
+      internalID: -7811224066638998955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_11
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 323
+        width: 87
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48f3102b975424270800000000000000
+      internalID: 8233219457766473604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_12
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 323
+        width: 87
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c9243c569164d00800000000000000
+      internalID: 956479895721122875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_13
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 323
+        width: 87
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0e2467afd11a2b0800000000000000
+      internalID: -5575141902144839471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_14
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 323
+        width: 87
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd798dd32d05dcb30800000000000000
+      internalID: 4309189282374391772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_15
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 323
+        width: 87
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc8f946b98317e0a0800000000000000
+      internalID: -6852486825831171892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_16
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 323
+        width: 87
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5584a63919d42eca0800000000000000
+      internalID: -5989139266810525611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_17
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 323
+        width: 87
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c515ff131f0eae660800000000000000
+      internalID: 7415987062949499228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_18
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 323
+        width: 87
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12abf8ab5f132d5f0800000000000000
+      internalID: -733468857841239519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_19
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 193
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c9b5ff40d489bc00800000000000000
+      internalID: 916910029376174537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_20
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 193
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eafda9cc2cb561c0800000000000000
+      internalID: -4510992551193478425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_21
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 193
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b97596f1fd8a840800000000000000
+      internalID: 5235679892822530969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_22
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 193
+        width: 93
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1871e0372fd04b9a0800000000000000
+      internalID: -6218329850528262271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_23
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 193
+        width: 93
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca9cb15e2be8438b0800000000000000
+      internalID: -5173353172942730836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_24
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 193
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aac60563f7e71760800000000000000
+      internalID: 7428661142928935591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_25
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 193
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b1d0e7c13b52ca40800000000000000
+      internalID: 5386968373653459382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_26
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 193
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05cca86bc91182c60800000000000000
+      internalID: 7793498519939763280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_27
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 193
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e074a14c303d9ae60800000000000000
+      internalID: 7974136628364592910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_28
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 66
+        width: 106
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31d851f0055814080800000000000000
+      internalID: -9204929584471634669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_29
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 66
+        width: 106
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f56d60da80d0618a0800000000000000
+      internalID: -6334861494936218017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_30
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 61
+        width: 80
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d082e09be971f1b0800000000000000
+      internalID: -5624580406954000175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_31
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 61
+        width: 83
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6145d93769c72de0800000000000000
+      internalID: -1357895317439823509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_32
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 68
+        width: 80
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2183d56db5b380e20800000000000000
+      internalID: 3316966391182866450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_33
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 71
+        width: 81
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b85db319567ac880800000000000000
+      internalID: -8589923214300456777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden-gui-freepik_34
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 66
+        width: 296
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f244bdd61811f0e0800000000000000
+      internalID: -2237981053338500363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

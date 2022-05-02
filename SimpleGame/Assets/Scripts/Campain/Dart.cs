@@ -8,4 +8,5 @@ public class Dart
     public int speed;
     public Sprite sprite;
     public int price;
+    public string name;
 }
