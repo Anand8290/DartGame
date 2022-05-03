@@ -91,6 +91,7 @@ public class PlayerC : MonoBehaviour
     {
         //GameObject newDart =  Instantiate(DartPrefab, transform.position, Quaternion.identity);
         newDart.GetComponent<DartController>().Fly(windEffect.windSpeed);
+        AudioManager.instance.PlaySound("Throw");
         //sR.enabled = false;
         canFire = false;
     }

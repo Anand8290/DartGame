@@ -25,6 +25,7 @@ public class AppreciateManager : MonoBehaviour
             ps = particle_1;
             //appreciateUI.sprite = appreciate_1;
             message.GetComponent<SpriteRenderer>().sprite = appreciate_1;
+            AudioManager.instance.PlaySound("Celebrate");
             break;
 
             case 2:
@@ -42,6 +43,7 @@ public class AppreciateManager : MonoBehaviour
         
         ps.gameObject.SetActive(true);
         message.SetActive(true);
+        
         //appreciateUI.transform.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         //appreciateUI.transform.gameObject.SetActive(false);

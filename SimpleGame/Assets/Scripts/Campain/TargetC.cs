@@ -125,6 +125,7 @@ public class TargetC : MonoBehaviour
             Player.GetComponent<PlayerC>().UpdateScore(score);
 
             animator.SetTrigger("Hit");
+            AudioManager.instance.PlaySound("Hit");
         }
     }
 
