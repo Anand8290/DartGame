@@ -31,11 +31,13 @@ public class DartCardDisplay : MonoBehaviour
     [SerializeField] Text cardDartName;
 
     [SerializeField] GameObject SelectButton, BuyButton;
+    [SerializeField] GameObject PriceDisplay;
 
 
     void Awake()
     {
         totalDarts = dartDB.totalDarts;
+        defaultDartIndex = PlayerPrefs.GetInt("DART", 0);
     }
 
     void Start()
@@ -58,7 +60,7 @@ public class DartCardDisplay : MonoBehaviour
         dartName = dart.name;
 
         cardDartImage.sprite = sprite;
-        cardDartSpeed.text = speed.ToString() + " / " + maxSpeed.ToString();
+        cardDartSpeed.text = speed.ToString();
         float fillAmt = (float) speed / (float) maxSpeed;
         cardDartSpeedImage.fillAmount = fillAmt;
         cardDartPrice.text = price.ToString();
@@ -109,11 +111,13 @@ public class DartCardDisplay : MonoBehaviour
         {
             SelectButton.SetActive(true);
             BuyButton.SetActive(false);
+            PriceDisplay.SetActive(false);
         }
         else
         {
             SelectButton.SetActive(false);
             BuyButton.SetActive(true);
+            PriceDisplay.SetActive(true);
         }
     }
 }

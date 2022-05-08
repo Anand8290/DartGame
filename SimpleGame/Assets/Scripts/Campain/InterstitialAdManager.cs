@@ -9,6 +9,8 @@ public class InterstitialAdManager : MonoBehaviour, IUnityAdsLoadListener, IUnit
     [SerializeField] string _androidAdUnitId = "Interstitial_Android";
     [SerializeField] string _iOsAdUnitId = "Interstitial_iOS";
     string _adUnitId;
+
+    private bool removeAds = false;
  
     void Awake()
     {
@@ -17,12 +19,19 @@ public class InterstitialAdManager : MonoBehaviour, IUnityAdsLoadListener, IUnit
             ? _iOsAdUnitId
             : _androidAdUnitId;
     }
+
+    void Start()
+    {
+        if(PlayerPrefs.GetInt("REMOVEADS", 0) == 1)
+        {
+            removeAds = true;
+        }
+    }
  
     // Load content to the Ad Unit:
     public void LoadAd()
     {
         // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
-        Debug.Log("Loading Ad: " + _adUnitId);
         Advertisement.Load(_adUnitId, this);
     }
  
@@ -30,7 +39,10 @@ public class InterstitialAdManager : MonoBehaviour, IUnityAdsLoadListener, IUnit
     public void ShowAd()
     {
         // Note that if the ad content wasn't previously loaded, this method will fail
-        Debug.Log("Showing Ad: " + _adUnitId);
+        if(removeAds)
+        {
+            return;
+        }
         Advertisement.Show(_adUnitId, this);
     }
  
@@ -38,7 +50,6 @@ public class InterstitialAdManager : MonoBehaviour, IUnityAdsLoadListener, IUnit
     public void OnUnityAdsAdLoaded(string adUnitId)
     {
         // Optionally execute code if the Ad Unit successfully loads content.
-        //ShowAd();
     }
  
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)

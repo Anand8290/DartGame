@@ -7,10 +7,12 @@ public class SettingsPanel : MonoBehaviour
     private bool mute = false;
 
     [SerializeField] GameObject MuteButton, UnmuteButton;
+    [SerializeField] GameObject RemoveAdsButton;
 
     void Awake()
     {
        UpdateMuteButton();
+       UpdateRemoveAdsButton();
     }
 
     private void UpdateMuteButton()
@@ -38,4 +40,16 @@ public class SettingsPanel : MonoBehaviour
 		AudioManager.instance.UnMute();
         UpdateMuteButton();
 	}
+
+    public void UpdateRemoveAdsButton()
+    {
+        if(PlayerPrefs.GetInt("REMOVEADS", 0) == 1)
+        {
+            RemoveAdsButton.SetActive(false);
+        }
+        else
+        {
+            RemoveAdsButton.SetActive(true);
+        }
+    }
 }

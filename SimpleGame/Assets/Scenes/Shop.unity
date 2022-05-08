@@ -416,8 +416,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.0274048, y: -883.12}
-  m_SizeDelta: {x: 279, y: 102}
+  m_AnchoredPosition: {x: 1.0274048, y: -490}
+  m_SizeDelta: {x: 578.1676, y: 211.3731}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &262004666
 MonoBehaviour:
@@ -818,7 +818,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BackGroundColor: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1145,7 +1145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &759776882
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1237,8 +1237,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 42.300003, y: 1}
-  m_SizeDelta: {x: 88.2789, y: 88.2789}
+  m_AnchoredPosition: {x: 90.799, y: 0.000015259}
+  m_SizeDelta: {x: 181.5973, y: 181.5973}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &776146304
 MonoBehaviour:
@@ -1328,7 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10196079, g: 0.22352943, b: 0.28235295, a: 1}
+  m_Color: {r: 0.023529412, g: 0.38039216, b: 0.3882353, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2301,6 +2301,7 @@ MonoBehaviour:
   cardDartName: {fileID: 1431844114}
   SelectButton: {fileID: 923165994}
   BuyButton: {fileID: 981940098}
+  PriceDisplay: {fileID: 262004664}
 --- !u!1 &1431844112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,10 +2495,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1d583cffe056be84d8db849d90ab598a, type: 3}
-    m_FontSize: 40
+    m_FontSize: 65
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 7
+    m_MinSize: 6
     m_MaxSize: 65
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -2567,7 +2568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10012461, g: 0.22449268, b: 0.2830189, a: 1}
+  m_Color: {r: 0.023529412, g: 0.38039216, b: 0.3882353, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2731,8 +2732,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 37.063, y: 4.9547005}
-  m_SizeDelta: {x: -110.47, y: -39.929}
+  m_AnchoredPosition: {x: 64.35423, y: 4.9546967}
+  m_SizeDelta: {x: -200.2668, y: -71.622}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1689316731
 MonoBehaviour:
@@ -2756,11 +2757,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1d583cffe056be84d8db849d90ab598a, type: 3}
-    m_FontSize: 48
+    m_FontSize: 102
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 65
+    m_MaxSize: 114
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1

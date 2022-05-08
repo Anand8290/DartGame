@@ -9,6 +9,7 @@ public class AppreciateManager : MonoBehaviour
     [SerializeField] Sprite appreciate_1, appreciate_2;
     [SerializeField] ParticleSystem particle_1, particle_2;
     [SerializeField] GameObject message;
+    [SerializeField] CameraShake cameraShake;
 
     public void Appreciate(int grade)
     {
@@ -26,6 +27,7 @@ public class AppreciateManager : MonoBehaviour
             //appreciateUI.sprite = appreciate_1;
             message.GetComponent<SpriteRenderer>().sprite = appreciate_1;
             AudioManager.instance.PlaySound("Celebrate");
+            StartCoroutine(cameraShake.Shake(0.3f, 0.08f));
             break;
 
             case 2:

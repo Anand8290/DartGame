@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 3570408530725584066}
   - component: {fileID: 3570408530725584064}
   - component: {fileID: 3570408530725584070}
-  - component: {fileID: 3570408530725584071}
-  - component: {fileID: 2187969341958021936}
+  - component: {fileID: 1397734998577681171}
   m_Layer: 6
-  m_Name: DartC
+  m_Name: DartTA2
   m_TagString: dart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3570408530725584067}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1.619}
   m_Children:
   - {fileID: 4022473453425030305}
   m_Father: {fileID: 0}
@@ -101,7 +100,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.89}
+  m_Offset: {x: 0, y: 0.9}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -135,7 +134,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3570408530725584071
+--- !u!114 &1397734998577681171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,25 +143,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3570408530725584067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd0bcc241afdbb54c99114756c604b6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 99a3dc400d14a634badfffd97c829815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2187969341958021936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3570408530725584067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f78becaf46aec7c4db2738fb948190a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dartDB: {fileID: 11400000, guid: da019bb86ec294342b0af6fc1d80c4a6, type: 2}
-  dartIndex: 0
-  speed: 0
-  sprite: {fileID: 0}
+  speed: 10
 --- !u!1 &7839730317064109744
 GameObject:
   m_ObjectHideFlags: 0

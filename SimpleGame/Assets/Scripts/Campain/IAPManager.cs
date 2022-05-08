@@ -6,13 +6,15 @@ using UnityEngine.Purchasing;
 public class IAPManager : MonoBehaviour
 {
     private string removeads = "com.ak2dstudios.dartsmaster.removeads";
-
+    [SerializeField] SettingsPanel settingsPanel;
 
     public void OnPurchaseComplete(Product product)
     {
         if(product.definition.id == removeads)
         {
             Debug.Log("All ads removed");
+            PlayerPrefs.SetInt("REMOVEADS", 1);
+            settingsPanel.UpdateRemoveAdsButton();
         }
         
     }

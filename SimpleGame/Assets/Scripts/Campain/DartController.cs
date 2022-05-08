@@ -27,7 +27,8 @@ public class DartController : MonoBehaviour
 
     public void Fly(float windSpeed)
     {   
-        rb.velocity = new Vector2(windSpeed, speed);
+        //rb.velocity = new Vector2(windSpeed, speed);
+        StartCoroutine(NewFly(windSpeed));
     }
 
     public void UpdateDart(int dartIndex)
@@ -35,6 +36,13 @@ public class DartController : MonoBehaviour
         dartDB.LoadDartFromDB(dartIndex);
         speed = dartDB.speed;
         sR.sprite = dartDB.sprite;
+    }
+
+    IEnumerator NewFly(float windSpeed)
+    {
+        rb.velocity = new Vector2(windSpeed, speed * 1.2f);
+        yield return new WaitForSeconds(0.1f);
+        rb.velocity = new Vector2(rb.velocity.x, speed);
     }
 
 }

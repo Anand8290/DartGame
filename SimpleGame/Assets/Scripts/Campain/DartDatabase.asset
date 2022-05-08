@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Darts:
   - speed: 7
-    sprite: {fileID: 21300000, guid: aa8ab27a96db66841a3edb204640d200, type: 3}
+    sprite: {fileID: 21300000, guid: 50690e1025324714f9cb2e7ba82a251e, type: 3}
     price: 0
     name: Blue Dart
   - speed: 8
