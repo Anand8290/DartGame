@@ -7,6 +7,8 @@ public class WindEffectTA : MonoBehaviour
 {
     [SerializeField] float minWindSpeed = 0.0f, maxWindSpeed = 1.0f;
     [SerializeField] Text txtWind;
+    [SerializeField] Image windDirImg;
+    [SerializeField] Sprite windDirLeft, windDirRight, windDirUp;
 
     [HideInInspector]
     public float windSpeed;
@@ -19,7 +21,8 @@ public class WindEffectTA : MonoBehaviour
     public void CreateRandomWind()
     {
         windSpeed = Random.Range(minWindSpeed, maxWindSpeed) * IsWind();
-        txtWind.text = windSpeed.ToString("F1");
+        txtWind.text = Mathf.Abs(windSpeed).ToString("F1");
+        UpdateWindDirection();
     }
 
     private int IsWind()
@@ -29,5 +32,21 @@ public class WindEffectTA : MonoBehaviour
             return 1;
         }
         return 0;
-    }  
+    }
+    
+    private void UpdateWindDirection()
+    {
+        if(windSpeed == 0)
+        {
+            windDirImg.sprite = windDirUp;
+        }
+        else if(windSpeed > 0)
+        {
+            windDirImg.sprite = windDirRight;
+        }
+        else
+        {
+            windDirImg.sprite = windDirLeft;
+        }
+    }   
 }

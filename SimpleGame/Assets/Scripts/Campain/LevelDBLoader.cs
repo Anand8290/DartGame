@@ -6,7 +6,7 @@ public class LevelDBLoader : MonoBehaviour
 {
 
     [SerializeField] LevelDB levelDB;
-    [SerializeField] int levelIndex;
+    public int levelIndex;
     private Level currentLevel;
     private int totalLevels;
     

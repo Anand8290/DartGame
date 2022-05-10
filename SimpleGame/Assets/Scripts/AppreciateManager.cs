@@ -27,7 +27,7 @@ public class AppreciateManager : MonoBehaviour
             //appreciateUI.sprite = appreciate_1;
             message.GetComponent<SpriteRenderer>().sprite = appreciate_1;
             AudioManager.instance.PlaySound("Celebrate");
-            StartCoroutine(cameraShake.Shake(0.3f, 0.08f));
+            StartCoroutine(cameraShake.Shake());
             break;
 
             case 2:

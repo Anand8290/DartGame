@@ -11,13 +11,14 @@ public class GameEvents : MonoBehaviour
     public event Action OnStopGame;
     public event Action OnPauseGame;
     public event Action OnResumeGame;
+    public event Action WinGame;
 
     void Awake()
     {
         current = this;
     }
 
-    public void StarGameEvent()
+    public void StartGameEvent()
     {
         OnStartGame?.Invoke();
     }
@@ -35,6 +36,11 @@ public class GameEvents : MonoBehaviour
     public void ResumeGameEvent()
     {
         OnResumeGame?.Invoke();
+    }
+
+    public void WinGameEvent()
+    {
+        WinGame?.Invoke();
     }
 
 }

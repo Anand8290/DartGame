@@ -7,7 +7,8 @@ public class TargetTA : MonoBehaviour
 {
     private int direction = 1;
     public GameObject Player;
-    private float score, targetLength = 0.625f;
+    private int score;
+    private float targetLength = 0.625f;
     private float changeSpeedTime, changeSpeedTimeInterval = 5f;
     private float randomSpeed = 1, randomHeight = 3.5f;
     [SerializeField] float minHeight = 1.0f, maxHeight = 2.75f, minSpeed = 0.5f, maxSpeed = 2.0f;
@@ -15,6 +16,8 @@ public class TargetTA : MonoBehaviour
     public bool stopMoving = false;
     private float refScreenBoundX = 2.307692f; //Reference value of 1080p resolution oneplus 6T
     [SerializeField] AppreciateManager appreciateMgr;
+    [SerializeField] GameObject PopupScore;
+    private Animator animator;
     
     void Awake()
     {
@@ -25,7 +28,13 @@ public class TargetTA : MonoBehaviour
         speedAdjustForScreen = screenBounds.x / refScreenBoundX;
     }
 
-    void Update()
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        randomSpeed = Random.Range(minSpeed, maxSpeed);
+    }
+
+    /*void Update()
     {
         if(!stopMoving)
         {
@@ -40,9 +49,40 @@ public class TargetTA : MonoBehaviour
         }
         }
         
+    }*/
+
+    void FixedUpdate()
+    {
+        if(!stopMoving)
+        {
+          OscillateRandom(randomSpeed);
+        }
     }
 
+
     private void OscillateRandom(float speedAmt)
+    {
+        
+        transform.Translate(Time.fixedDeltaTime * speedAmt * speedAdjustForScreen * direction, 0, 0);
+        
+        if(transform.position.x <= -ScreenEdge)
+        {
+            direction = 1;
+            randomHeight = Random.Range(minHeight, maxHeight);
+            transform.position = new Vector3(transform.position.x, randomHeight, 0);
+            randomSpeed = Random.Range(minSpeed, maxSpeed);
+        }
+       
+        if (transform.position.x >= ScreenEdge)
+        {
+            direction = -1;
+            randomHeight = Random.Range(minHeight, maxHeight);
+            transform.position = new Vector3(transform.position.x, randomHeight, 0);
+            randomSpeed = Random.Range(minSpeed, maxSpeed);
+        }        
+    }
+
+    /*private void OscillateRandom(float speedAmt)
     {
         
         transform.Translate(Time.deltaTime * speedAmt * speedAdjustForScreen * direction, 0, 0);
@@ -60,7 +100,7 @@ public class TargetTA : MonoBehaviour
             randomHeight = Random.Range(minHeight, maxHeight);
             transform.position = new Vector3(transform.position.x, randomHeight, 0);
         }        
-    }
+    }*/
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -77,18 +117,25 @@ public class TargetTA : MonoBehaviour
             other.gameObject.GetComponent<DartControlTA>().HitTarget();
             hitPos = Mathf.Abs(other.gameObject.transform.localPosition.x);
             hitPos = Mathf.Clamp(hitPos, 0, targetLength);
-            score = 10 * (targetLength - hitPos)/targetLength;
+            score = Mathf.RoundToInt(10 * (targetLength - hitPos)/targetLength);
             
-            if(score>=9.9f)
+            if(score == 10)
             {
                 appreciateMgr.Appreciate(1);
             }
-            else if(score>=8.5f)
+            else if(score == 9)
             {
                 appreciateMgr.Appreciate(2);
             }
             
+            PopupScore.SetActive(true);
+            PopupScore.GetComponent<Text>().text = score.ToString();
+            PopupScore.GetComponent<PopupScore>().Animate();
+
             Player.GetComponent<PlayerTA>().UpdateScore(score);
+            animator.SetTrigger("Hit");
+            
+            AudioManager.instance.PlaySound("Hit");
         }
     }
 

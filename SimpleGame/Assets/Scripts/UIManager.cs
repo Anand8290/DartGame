@@ -12,9 +12,14 @@ public class UIManager : MonoBehaviour
 
     public static bool GameIsPaused = false;
     
-    public void RestartLevel()
+    public void PauseRestartLevel()
     {
         Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void RestartLevel()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -40,6 +45,16 @@ public class UIManager : MonoBehaviour
         
     }
 
+    public void PauseGameTA()
+    {
+        GameIsPaused = true;
+        PauseButton.SetActive(false);
+        PausePanelUI.SetActive(true);
+        PausePanelUI.GetComponent<PausePanel>().Animate();
+        Time.timeScale = 0;
+        
+    }
+
     public void ResumeGame()
     {
         Time.timeScale = 1;
@@ -47,6 +62,19 @@ public class UIManager : MonoBehaviour
         PauseButton.SetActive(true);
         GameIsPaused = false;
         GameEvents.current.ResumeGameEvent();
+    }
+
+    public void ResumeGameTA()
+    {
+        Time.timeScale = 1;
+        PausePanelUI.SetActive(false);
+        PauseButton.SetActive(true);
+        GameIsPaused = false;
+    }
+
+    public void OnClickPlayButtonSound()
+    {
+        AudioManager.instance.PlaySound("Button");
     }
 
 }

@@ -17,7 +17,9 @@ public class TargetC : MonoBehaviour
     private float refScreenBoundX = 2.307692f; //Reference value of 1080p resolution oneplus 6T
     [SerializeField] AppreciateManager appreciateMgr;
     [SerializeField] GameObject PopupScore;
-    private Animator animator; 
+    private Animator animator;
+    [SerializeField] GameObject DartHit;
+    [SerializeField] private Rigidbody2D[] brokenPieces;
     
     void Awake()
     {
@@ -32,30 +34,25 @@ public class TargetC : MonoBehaviour
         GameEvents.current.OnStopGame += StopGame;
         GameEvents.current.OnPauseGame += PauseGame;
         GameEvents.current.OnResumeGame += ResumeGame;
+        GameEvents.current.WinGame += OnWinGame;
     }
     
     void Start()
     {
         animator = GetComponent<Animator>();
+        randomSpeed = Random.Range(minSpeed, maxSpeed);
     }
 
-    /*void Update()
+    void FixedUpdate()
     {
         if(!stopMoving)
         {
-        if(Time.time < changeSpeedTimeInterval)
-        {  
           OscillateRandom(randomSpeed);
         }
-        else
-        {
-            changeSpeedTimeInterval = Time.time + Random.Range(2, 6f);
-            randomSpeed = Random.Range(minSpeed, maxSpeed);
-        }
-        }
-    }*/
+    }
+    
 
-    void FixedUpdate()
+    /*void FixedUpdate()
     {
         if(!stopMoving)
         {
@@ -69,11 +66,33 @@ public class TargetC : MonoBehaviour
             randomSpeed = Random.Range(minSpeed, maxSpeed);
         }
         }
-    }
+    }*/
 
 
 
     private void OscillateRandom(float speedAmt)
+    {
+        
+        transform.Translate(Time.fixedDeltaTime * speedAmt * speedAdjustForScreen * direction, 0, 0);
+        
+        if(transform.position.x <= -ScreenEdge)
+        {
+            direction = 1;
+            randomHeight = Random.Range(minHeight, maxHeight);
+            transform.position = new Vector3(transform.position.x, randomHeight, 0);
+            randomSpeed = Random.Range(minSpeed, maxSpeed);
+        }
+       
+        if (transform.position.x >= ScreenEdge)
+        {
+            direction = -1;
+            randomHeight = Random.Range(minHeight, maxHeight);
+            transform.position = new Vector3(transform.position.x, randomHeight, 0);
+            randomSpeed = Random.Range(minSpeed, maxSpeed);
+        }        
+    }
+
+    /*private void OscillateRandom(float speedAmt)
     {
         
         transform.Translate(Time.fixedDeltaTime * speedAmt * speedAdjustForScreen * direction, 0, 0);
@@ -91,7 +110,7 @@ public class TargetC : MonoBehaviour
             randomHeight = Random.Range(minHeight, maxHeight);
             transform.position = new Vector3(transform.position.x, randomHeight, 0);
         }        
-    }
+    }*/
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -100,11 +119,11 @@ public class TargetC : MonoBehaviour
         if(other.gameObject.tag == "dart")
         {
             
-            if(transform.childCount == 1)
+            if(DartHit.transform.childCount == 1)
             {
-                Destroy(transform.GetChild(0).gameObject);
+                Destroy(DartHit.transform.GetChild(0).gameObject);
             }
-            other.gameObject.transform.SetParent(this.gameObject.transform);
+            other.gameObject.transform.SetParent(DartHit.transform);
             other.gameObject.GetComponent<DartController>().HitTarget();
             hitPos = Mathf.Abs(other.gameObject.transform.localPosition.x);
             hitPos = Mathf.Clamp(hitPos, 0, targetLength);
@@ -126,6 +145,8 @@ public class TargetC : MonoBehaviour
 
             animator.SetTrigger("Hit");
             AudioManager.instance.PlaySound("Hit");
+
+            
         }
     }
 
@@ -133,10 +154,12 @@ public class TargetC : MonoBehaviour
     private void StartGame()
     {
         stopMoving = false;
+        GameEvents.current.OnStopGame -= StartGame;
     }
 
     private void StopGame()
     {
+        GameEvents.current.OnStopGame -= StopGame;
         stopMoving = true;
         gameObject.SetActive(false);
     }
@@ -144,10 +167,39 @@ public class TargetC : MonoBehaviour
     private void PauseGame()
     {
         stopMoving = true;
+        GameEvents.current.OnPauseGame -= PauseGame;
     }
 
     private void ResumeGame()
     {
         stopMoving = false;
+        GameEvents.current.OnPauseGame += PauseGame;
     }
+
+    private void OnWinGame()
+    {
+        StartCoroutine(PlayBrokenEffect());
+        stopMoving = true;
+        DartHit.SetActive(false);
+    }
+
+    private IEnumerator PlayBrokenEffect()
+    {
+        yield return new WaitForFixedUpdate();
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+ 
+            //Enable breakable pieces
+            foreach (Rigidbody2D o in brokenPieces)
+            {
+                o.gameObject.SetActive(true);
+                o.transform.parent = null;
+                Vector3 forceDirection = (o.transform.position - transform.position).normalized * 7f;
+                forceDirection.y = forceDirection.y < 0 ? forceDirection.y * -1 : forceDirection.y;
+                o.AddForceAtPosition(forceDirection, transform.position, ForceMode2D.Impulse);
+                o.AddTorque(20, ForceMode2D.Impulse);
+                Destroy(o.gameObject, 1.5f);
+                yield return null;
+            }
+    } 
+
 }

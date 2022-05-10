@@ -16,6 +16,9 @@ MonoBehaviour:
   - score: 18
     darts: 3
     rewardCoins: 30
-  - score: 75
-    darts: 10
+  - score: 42
+    darts: 6
     rewardCoins: 50
+  - score: 70
+    darts: 10
+    rewardCoins: 70

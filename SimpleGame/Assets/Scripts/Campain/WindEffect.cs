@@ -23,7 +23,7 @@ public class WindEffect : MonoBehaviour
         //int isWind = IsWind();
         //Debug.Log("random direction is "+ isWind);
         windSpeed = Random.Range(minWindSpeed, maxWindSpeed) * IsWind();
-        txtWind.text = windSpeed.ToString("F1");
+        txtWind.text = Mathf.Abs(windSpeed).ToString("F1");
         UpdateWindDirection();
     }
 

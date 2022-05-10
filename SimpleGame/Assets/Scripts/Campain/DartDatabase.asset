@@ -18,10 +18,10 @@ MonoBehaviour:
     price: 0
     name: Blue Dart
   - speed: 8
-    sprite: {fileID: 21300000, guid: 6ed8094f641b01841bd7e66d7196551d, type: 3}
+    sprite: {fileID: 21300000, guid: 50690e1025324714f9cb2e7ba82a251e, type: 3}
     price: 5
     name: Red Dart
   - speed: 10
-    sprite: {fileID: 21300000, guid: 591d3be7baab1854c906906c1d7f7c73, type: 3}
+    sprite: {fileID: 21300000, guid: 50690e1025324714f9cb2e7ba82a251e, type: 3}
     price: 10
     name: Green Dart

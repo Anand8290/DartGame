@@ -15,6 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/TimeAttack.unity
     guid: 46ddfcc1a0c916b48ab136f32a256141
   - enabled: 1
-    path: Assets/Scenes/Career.unity
+    path: Assets/Scenes/LevelSelection.unity
+    guid: 7760d3cd0d15ff342884de5dbe40094d
+  - enabled: 1
+    path: Assets/Scenes/Level0.unity
     guid: 9f173e0e69feea74cb396eabb3025908
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: c5615eb8249b26044a5110f40babeec8
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 4214047f38f4cc444b0a36efd6a2b302
   m_configObjects: {}

@@ -116,7 +116,7 @@ public class PlayerC : MonoBehaviour
         if(liveScore <= 0)
         {
             winGame = true;
-            GameOver();
+           GameOver();
         }
         else if(dartsRemaining <= 0)
         {
@@ -145,6 +145,7 @@ public class PlayerC : MonoBehaviour
         coinSystem.CalculateCoins(star);
         careerMGR.GameOver(winGame, star, coinSystem.levelCoins);
     }
+    
 
     private void CalculateStar()
     {

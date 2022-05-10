@@ -6,34 +6,48 @@ using UnityEngine.UI;
 public class PlayerTA : MonoBehaviour
 {
     public bool canFire = true;
-    public GameObject DartPrefab;
-    public int totalDarts = 100;
-    int thrownDarts = 0;
-    [SerializeField] SpriteRenderer sR;
-    public Text txtThrownDarts, txtTotalScore;
-    public float totalScore = 0;
-    private float[] score;
     public bool startGame = false;
     [SerializeField] TargetTA tarTA;
+    
+    [Header("Dart Setup")]
+    [SerializeField] GameObject DartPrefab;
+    [SerializeField] SpriteRenderer sR;
+    [SerializeField] WindEffectTA windEffectTA;
+    public int totalDarts = 100;
+    public int thrownDarts = 0;
+    public Text txtThrownDarts;
+
+    [Header("Score")]
+    public float totalScore = 0;
+    private float[] score;
+    public Text txtTotalScore;
     [SerializeField] Text[] txtDS;
     private int dsNumber = 0;
+
+    [Header("Managers")]
     [SerializeField] GameManager gameMGR;
-    [SerializeField] WindEffectTA windEffectTA;
-    
     
     void Awake()
     {
         SetupDartSprite();
         txtThrownDarts.text = thrownDarts.ToString();
         score = new float[totalDarts];
+
+        // Subscribe to Game Evenets
+        GameEvents.current.OnPauseGame += PauseGame;
+        GameEvents.current.OnResumeGame += ResumeGame;
     }
     
-    
-    void Start()
+    private void PauseGame()
     {
-            
+        canFire = false;
     }
 
+    private void ResumeGame()
+    {
+        canFire = true;
+    }
+    
     
     private void SetupDartSprite()
     {
@@ -91,7 +105,4 @@ public class PlayerTA : MonoBehaviour
         }
     }
 
-    
-
-    
 }

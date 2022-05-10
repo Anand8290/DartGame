@@ -8,28 +8,48 @@ public class GameManager : MonoBehaviour
 
     private bool gameOver = false;
     private bool startGame = false;
-    [SerializeField] GameObject GetReadyPanel, gameoverPanel, ThrowButton;
-    [SerializeField] GameObject buttonHsLB;
+    
     [SerializeField] GameObject player, target;
+    
+    [Header("Score Setup")]
+    [SerializeField] Text txtFinalScore;
+    [SerializeField] Text txtHsTA;
+    [SerializeField] Text txtAvgScore;
+    private float totalScore, highScoreTA, dartsThrown, averageScore;
+    
+    [Header("Time Setup")]
     public float totalTime;
     public Text txtTimeRemaining;
     private float timeRemaining;
-    private float totalScore, highScoreTA;
+    [SerializeField] Image TimeupImg;
 
-    [SerializeField] Text txtFinalScore, txtHsTA;
-    [SerializeField] Image displayImg;
-    [SerializeField] Sprite timeupSprite;
+    [Header("Coins Setup")]
+    public int totalCoins;
+    [SerializeField] int levelCoins = 25;
+    [SerializeField] Text txtEarnedCoins;
+    
+    [Header("Panels")]
+    [SerializeField] GameObject GetReadyPanel;
+    [SerializeField] GameObject gameoverPanel;
+    [SerializeField] GameObject ThrowButton;
+    [SerializeField] GameObject buttonHsLB;
+    [SerializeField] GameObject WindTxt;
 
+    [Header("Managers")]
     [SerializeField] GpgsAchievement gAchievement;
+    
     private int gamesPlayedTA;
+    
 
     void Start()
     {
         timeRemaining = totalTime;
         txtTimeRemaining.text = timeRemaining.ToString("F0");
+        WindTxt.SetActive(false);
         GetReadyPanel.SetActive(true);
         highScoreTA = PlayerPrefs.GetFloat("HS_TA", 0);
         gamesPlayedTA = PlayerPrefs.GetInt("GP_TA", 0);
+        totalCoins = PlayerPrefs.GetInt("COINS", 0);
     }
 
     void Update()
@@ -45,14 +65,13 @@ public class GameManager : MonoBehaviour
             {
                 GameOver();
             }
-
         }
-
     }
 
     public void StartGame()
     {
         startGame = true;
+        WindTxt.SetActive(true);
         player.GetComponent<PlayerTA>().startGame = true;
         target.GetComponent<TargetTA>().stopMoving = false;
     }
@@ -63,22 +82,26 @@ public class GameManager : MonoBehaviour
         target.GetComponent<TargetTA>().stopMoving = true;
         target.GetComponent<BoxCollider2D>().enabled = false;
         ThrowButton.SetActive(false);
+        WindTxt.SetActive(false);
         player.SetActive(false);
         target.SetActive(false);
+        RewardCoins();
         StartCoroutine(TimeUp());
     }
 
     IEnumerator TimeUp()
     {
-        displayImg.transform.gameObject.SetActive(false);
-        displayImg.sprite = timeupSprite;
-        displayImg.transform.gameObject.SetActive(true);
+        TimeupImg.transform.gameObject.SetActive(false);
+        TimeupImg.transform.gameObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
-        displayImg.transform.gameObject.SetActive(false);
+        TimeupImg.transform.gameObject.SetActive(false);
 
         gameoverPanel.SetActive(true);
 
         totalScore = player.GetComponent<PlayerTA>().totalScore;
+        dartsThrown = player.GetComponent<PlayerTA>().thrownDarts;
+        averageScore = totalScore/dartsThrown;
+        Debug.Log("Average Score "+averageScore);
 
         if(totalScore > highScoreTA)
         {
@@ -86,10 +109,15 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat("HS_TA", highScoreTA);
             buttonHsLB.SetActive(true);
         }
-        txtFinalScore.text = "Score : " + totalScore.ToString("F1");
+        
+        txtFinalScore.text = totalScore.ToString("F1");
         txtHsTA.text = "High Score : " + highScoreTA.ToString("F1");
+        txtAvgScore.text = averageScore.ToString("F1");
+        txtEarnedCoins.text = "+ " + levelCoins.ToString();
+        
         gamesPlayedTA += 1;
         PlayerPrefs.SetInt("GP_TA", gamesPlayedTA);
+        
         if(gamesPlayedTA >= 1)
         {
             gAchievement.UnlockAcheivement(GPGSIds.achievement_newbie);
@@ -103,6 +131,21 @@ public class GameManager : MonoBehaviour
     public void ButtonSendHighScore()
     {
         gAchievement.SendScoreToLeaderboard(highScoreTA);
+    }
+
+    private float Divide(int u, int c)
+    {
+        int value = u / c;
+        int remain = (u % c)* 100 / c;
+        float result = value + (remain * 0.01f);
+        return result;
+    }
+
+    public void RewardCoins()
+    {
+        totalCoins += levelCoins;
+        //gameoverpanel.UpdateCoinsTxt(levelCoins*2);
+        PlayerPrefs.SetInt("COINS", totalCoins);
     }
  
 }
