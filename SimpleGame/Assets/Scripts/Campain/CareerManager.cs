@@ -17,10 +17,17 @@ public class CareerManager : MonoBehaviour
     private bool isLevelToUnlock = false;
     private int oldStars;
 
+    [Header ("Startup Panel")]
+    [SerializeField] GameObject PanelStartup;
+    [SerializeField] private Text txtToScore;
+    [SerializeField] private Text txtInDarts;
+    
     void Start()
     {
-        GameEvents.current.StartGameEvent();
-        if(levelDBLoader.levelIndex > PlayerPrefs.GetInt("LEVELUNLOCKED", 0))
+        //GameEvents.current.StartGameEvent();
+        PauseButton.SetActive(false);
+        StartCoroutine(PupupDisplay());
+        if(levelDBLoader.levelIndex > PlayerPrefs.GetInt("LEVELUNLOCKED", -1))
         {
             isLevelToUnlock = true;
         }
@@ -58,5 +65,16 @@ public class CareerManager : MonoBehaviour
         gameoverPanel.GetComponent<GameOverPanel>().Animate(winGame, star, levelCoins);
     }
 
-
+    public IEnumerator PupupDisplay()
+    {
+        PanelStartup.SetActive(true);
+        LeanTween.moveLocalX(PanelStartup, 0f, 1f).setDelay(0.5f).setEase(LeanTweenType.easeInCubic);
+        txtToScore.text = levelDBLoader.score.ToString();
+        txtInDarts.text = levelDBLoader.darts.ToString();
+        LeanTween.moveLocalX(PanelStartup, 1400f, 1f).setDelay(3.5f).setEase(LeanTweenType.easeInOutExpo);
+        yield return new WaitForSeconds(4.0f);
+        PanelStartup.SetActive(false);
+        GameEvents.current.StartGameEvent();
+        PauseButton.SetActive(true);
+    }
 }

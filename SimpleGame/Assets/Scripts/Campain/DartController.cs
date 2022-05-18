@@ -6,7 +6,6 @@ public class DartController : MonoBehaviour
 {
     
     private float speed = 1f;
-    private float windSpeed = -1f;
     Rigidbody2D rb;
     DartDBLoader dartDB;
     SpriteRenderer sR;
@@ -27,7 +26,6 @@ public class DartController : MonoBehaviour
 
     public void Fly(float windSpeed)
     {   
-        //rb.velocity = new Vector2(windSpeed, speed);
         StartCoroutine(NewFly(windSpeed));
     }
 

@@ -14,14 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Darts:
   - speed: 7
-    sprite: {fileID: 21300000, guid: 50690e1025324714f9cb2e7ba82a251e, type: 3}
+    sprite: {fileID: 21300000, guid: f2442c7fc8bb44a498f59dd840b1beba, type: 3}
     price: 0
-    name: Blue Dart
+    name: Dart
   - speed: 8
-    sprite: {fileID: 21300000, guid: 50690e1025324714f9cb2e7ba82a251e, type: 3}
-    price: 5
-    name: Red Dart
+    sprite: {fileID: 21300000, guid: 1b992b9f84e84504babdba7e6d4429e8, type: 3}
+    price: 200
+    name: Spiky Boy
+  - speed: 9
+    sprite: {fileID: 21300000, guid: df81bd4ba45731046b751317a1fbf84b, type: 3}
+    price: 1000
+    name: Kunai
   - speed: 10
     sprite: {fileID: 21300000, guid: 50690e1025324714f9cb2e7ba82a251e, type: 3}
-    price: 10
-    name: Green Dart
+    price: 3000
+    name: Sharpy Blue

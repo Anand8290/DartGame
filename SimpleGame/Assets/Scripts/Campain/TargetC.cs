@@ -9,11 +9,10 @@ public class TargetC : MonoBehaviour
     public GameObject Player;
     private int score;
     private float targetLength = 0.625f;
-    private float changeSpeedTime, changeSpeedTimeInterval = 5f;
     private float randomSpeed = 1, randomHeight = 3.5f;
     [SerializeField] float minHeight = 1.0f, maxHeight = 2.75f, minSpeed = 0.5f, maxSpeed = 2.0f;
     float ScreenEdge, speedAdjustForScreen;
-    private bool stopMoving = false;
+    private bool stopMoving = true;
     private float refScreenBoundX = 2.307692f; //Reference value of 1080p resolution oneplus 6T
     [SerializeField] AppreciateManager appreciateMgr;
     [SerializeField] GameObject PopupScore;
@@ -51,25 +50,6 @@ public class TargetC : MonoBehaviour
         }
     }
     
-
-    /*void FixedUpdate()
-    {
-        if(!stopMoving)
-        {
-        if(Time.fixedTime < changeSpeedTimeInterval)
-        {  
-          OscillateRandom(randomSpeed);
-        }
-        else
-        {
-            changeSpeedTimeInterval = Time.fixedTime + Random.Range(2, 6f);
-            randomSpeed = Random.Range(minSpeed, maxSpeed);
-        }
-        }
-    }*/
-
-
-
     private void OscillateRandom(float speedAmt)
     {
         
@@ -91,26 +71,6 @@ public class TargetC : MonoBehaviour
             randomSpeed = Random.Range(minSpeed, maxSpeed);
         }        
     }
-
-    /*private void OscillateRandom(float speedAmt)
-    {
-        
-        transform.Translate(Time.fixedDeltaTime * speedAmt * speedAdjustForScreen * direction, 0, 0);
-        
-        if(transform.position.x <= -ScreenEdge)
-        {
-            direction = 1;
-            randomHeight = Random.Range(minHeight, maxHeight);
-            transform.position = new Vector3(transform.position.x, randomHeight, 0);
-        }
-       
-        if (transform.position.x >= ScreenEdge)
-        {
-            direction = -1;
-            randomHeight = Random.Range(minHeight, maxHeight);
-            transform.position = new Vector3(transform.position.x, randomHeight, 0);
-        }        
-    }*/
 
     private void OnCollisionEnter2D(Collision2D other)
     {

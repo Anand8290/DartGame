@@ -13,12 +13,153 @@ MonoBehaviour:
   m_Name: LevelDataBase
   m_EditorClassIdentifier: 
   levels:
+  - score: 5
+    darts: 1
+    rewardCoins: 10
+  - score: 8
+    darts: 2
+    rewardCoins: 10
+  - score: 10
+    darts: 2
+    rewardCoins: 10
+  - score: 14
+    darts: 2
+    rewardCoins: 10
+  - score: 8
+    darts: 1
+    rewardCoins: 15
+  - score: 16
+    darts: 2
+    rewardCoins: 15
+  - score: 9
+    darts: 1
+    rewardCoins: 15
   - score: 18
+    darts: 2
+    rewardCoins: 15
+  - score: 10
+    darts: 1
+    rewardCoins: 20
+  - score: 19
+    darts: 2
+    rewardCoins: 20
+  - score: 21
     darts: 3
     rewardCoins: 30
+  - score: 24
+    darts: 3
+    rewardCoins: 30
+  - score: 27
+    darts: 3
+    rewardCoins: 30
+  - score: 20
+    darts: 2
+    rewardCoins: 50
+  - score: 21
+    darts: 4
+    rewardCoins: 50
+  - score: 32
+    darts: 4
+    rewardCoins: 50
+  - score: 36
+    darts: 4
+    rewardCoins: 50
+  - score: 35
+    darts: 5
+    rewardCoins: 50
+  - score: 40
+    darts: 5
+    rewardCoins: 60
+  - score: 45
+    darts: 5
+    rewardCoins: 60
+  - score: 36
+    darts: 6
+    rewardCoins: 60
   - score: 42
     darts: 6
-    rewardCoins: 50
+    rewardCoins: 60
+  - score: 48
+    darts: 6
+    rewardCoins: 60
+  - score: 54
+    darts: 6
+    rewardCoins: 70
+  - score: 42
+    darts: 7
+    rewardCoins: 70
+  - score: 49
+    darts: 7
+    rewardCoins: 70
+  - score: 56
+    darts: 7
+    rewardCoins: 70
+  - score: 63
+    darts: 7
+    rewardCoins: 70
+  - score: 48
+    darts: 8
+    rewardCoins: 80
+  - score: 56
+    darts: 8
+    rewardCoins: 80
+  - score: 64
+    darts: 8
+    rewardCoins: 80
+  - score: 72
+    darts: 8
+    rewardCoins: 80
+  - score: 54
+    darts: 9
+    rewardCoins: 80
+  - score: 63
+    darts: 9
+    rewardCoins: 80
+  - score: 72
+    darts: 9
+    rewardCoins: 80
+  - score: 81
+    darts: 9
+    rewardCoins: 80
+  - score: 50
+    darts: 10
+    rewardCoins: 100
+  - score: 55
+    darts: 10
+    rewardCoins: 100
+  - score: 60
+    darts: 10
+    rewardCoins: 100
+  - score: 65
+    darts: 10
+    rewardCoins: 100
   - score: 70
     darts: 10
-    rewardCoins: 70
+    rewardCoins: 100
+  - score: 75
+    darts: 10
+    rewardCoins: 100
+  - score: 80
+    darts: 10
+    rewardCoins: 100
+  - score: 66
+    darts: 11
+    rewardCoins: 200
+  - score: 77
+    darts: 11
+    rewardCoins: 200
+  - score: 88
+    darts: 11
+    rewardCoins: 200
+  - score: 72
+    darts: 12
+    rewardCoins: 200
+  - score: 84
+    darts: 12
+    rewardCoins: 200
+  - score: 96
+    darts: 12
+    rewardCoins: 200
+  - score: 50
+    darts: 5
+    rewardCoins: 1000

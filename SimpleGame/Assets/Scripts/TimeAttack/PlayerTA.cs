@@ -66,6 +66,7 @@ public class PlayerTA : MonoBehaviour
         sR.enabled = false;
         canFire = false;
         thrownDarts += 1;
+        AudioManager.instance.PlaySound("Throw");
     }
 
     public void UpdateScore(float scoreAmt)
@@ -73,11 +74,11 @@ public class PlayerTA : MonoBehaviour
         int i = thrownDarts;
         score[i] = scoreAmt;
         totalScore += score[i];
-        txtTotalScore.text = totalScore.ToString("F1");
+        txtTotalScore.text = totalScore.ToString("F0");
         txtThrownDarts.text = thrownDarts.ToString();
         
         // Score update on UI of last 3 throws
-        txtDS[dsNumber].text = score[i].ToString("F1");
+        txtDS[dsNumber].text = score[i].ToString("F0");
         txtDS[dsNumber].color = Color.yellow;
         if(dsNumber>0)
         {

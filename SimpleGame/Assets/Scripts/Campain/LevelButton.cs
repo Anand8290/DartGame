@@ -12,7 +12,7 @@ public class LevelButton : MonoBehaviour
     
     public void UpdateLevelButton(int levelNo, int starsUnlocked)
     {
-        levelNumber.text = levelNo.ToString();
+        levelNumber.text = (levelNo+1).ToString();
 
         for (int i = 0; i < starsUnlocked; i++)
         {

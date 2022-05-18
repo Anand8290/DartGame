@@ -52,6 +52,7 @@ public class AudioManager : MonoBehaviour
 	
 	[SerializeField] Sound[] sounds;
 	private bool musicIsPlaying = true;
+	int mute;
 
 
 	void Awake()
@@ -69,6 +70,9 @@ public class AudioManager : MonoBehaviour
 			instance = this;
 			DontDestroyOnLoad(this);
 		}
+
+		mute = PlayerPrefs.GetInt("MUTE", 0);
+		
 	}
 
 	
@@ -82,7 +86,14 @@ public class AudioManager : MonoBehaviour
 			sounds[i].SetSource(_go.AddComponent<AudioSource>());
 		}
 		
-		PlaySound("Music");
+		if(mute == 1)
+		{
+			Mute();
+		}
+		else
+		{
+			UnMute();
+		}
 	}
 
 	public void PlaySound(string _name)
@@ -131,8 +142,6 @@ public class AudioManager : MonoBehaviour
 			PlaySound("Music");
 			AudioListener.pause = false;
 		}
-
-		//FindObjectOfType<ButtonManager>().UpdateMusicButtonImage(musicIsPlaying);
 		
 	}
 

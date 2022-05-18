@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject ThrowButton;
     [SerializeField] GameObject buttonHsLB;
     [SerializeField] GameObject WindTxt;
+    [SerializeField] GameObject PauseButton;
 
     [Header("Managers")]
     [SerializeField] GpgsAchievement gAchievement;
@@ -85,6 +86,7 @@ public class GameManager : MonoBehaviour
         WindTxt.SetActive(false);
         player.SetActive(false);
         target.SetActive(false);
+        PauseButton.SetActive(false);
         RewardCoins();
         StartCoroutine(TimeUp());
     }
@@ -101,7 +103,6 @@ public class GameManager : MonoBehaviour
         totalScore = player.GetComponent<PlayerTA>().totalScore;
         dartsThrown = player.GetComponent<PlayerTA>().thrownDarts;
         averageScore = totalScore/dartsThrown;
-        Debug.Log("Average Score "+averageScore);
 
         if(totalScore > highScoreTA)
         {
@@ -110,8 +111,8 @@ public class GameManager : MonoBehaviour
             buttonHsLB.SetActive(true);
         }
         
-        txtFinalScore.text = totalScore.ToString("F1");
-        txtHsTA.text = "High Score : " + highScoreTA.ToString("F1");
+        txtFinalScore.text = totalScore.ToString("F0");
+        txtHsTA.text = "High Score : " + highScoreTA.ToString("F0");
         txtAvgScore.text = averageScore.ToString("F1");
         txtEarnedCoins.text = "+ " + levelCoins.ToString();
         
@@ -125,7 +126,15 @@ public class GameManager : MonoBehaviour
         if(totalScore >= 50)
         {
             gAchievement.UnlockAcheivement(GPGSIds.achievement_rookie);
-        }     
+        }
+        if(totalScore >= 150)
+        {
+            gAchievement.UnlockAcheivement(GPGSIds.achievement_the_arrow);
+        }
+        if(totalScore >= 250)
+        {
+            gAchievement.UnlockAcheivement(GPGSIds.achievement_the_artist);
+        }  
     }
 
     public void ButtonSendHighScore()
@@ -144,7 +153,6 @@ public class GameManager : MonoBehaviour
     public void RewardCoins()
     {
         totalCoins += levelCoins;
-        //gameoverpanel.UpdateCoinsTxt(levelCoins*2);
         PlayerPrefs.SetInt("COINS", totalCoins);
     }
  

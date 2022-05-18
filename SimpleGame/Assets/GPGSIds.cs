@@ -24,9 +24,18 @@
 
 public static class GPGSIds
 {
-        public const string achievement_rookie = "CgkIn6So1LATEAIQAw"; // <GPGSID>
-        public const string leaderboard_time_attack_leader = "CgkIn6So1LATEAIQAQ"; // <GPGSID>
+        public const string achievement_the_magnet = "CgkIn6So1LATEAIQCg"; // <GPGSID>
         public const string achievement_newbie = "CgkIn6So1LATEAIQAg"; // <GPGSID>
+        public const string achievement_babyface = "CgkIn6So1LATEAIQBw"; // <GPGSID>
+        public const string achievement_the_king = "CgkIn6So1LATEAIQDA"; // <GPGSID>
+        public const string achievement_the_arrow = "CgkIn6So1LATEAIQBQ"; // <GPGSID>
+        public const string achievement_gentle_giant = "CgkIn6So1LATEAIQCQ"; // <GPGSID>
+        public const string leaderboard_time_attack_leader = "CgkIn6So1LATEAIQAQ"; // <GPGSID>
+        public const string achievement_the_artist = "CgkIn6So1LATEAIQBg"; // <GPGSID>
+        public const string achievement_rookie = "CgkIn6So1LATEAIQAw"; // <GPGSID>
+        public const string achievement_little_john = "CgkIn6So1LATEAIQCA"; // <GPGSID>
+        public const string achievement_superman = "CgkIn6So1LATEAIQDQ"; // <GPGSID>
+        public const string achievement_the_cowboy = "CgkIn6So1LATEAIQCw"; // <GPGSID>
 
 }
 

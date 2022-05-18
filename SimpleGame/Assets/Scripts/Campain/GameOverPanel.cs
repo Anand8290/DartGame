@@ -9,12 +9,16 @@ public class GameOverPanel : MonoBehaviour
     [SerializeField] Text txtResult, txtLevelCoins;
     [SerializeField] GameObject[] Stars, StarsFill;
     [SerializeField] InterstitialAdManager interstitialAdManager;
+    [SerializeField] GameObject Cup;
 
-    float d;
+    private int SHOWAD;
     
-    void Start()
+    void Awake()
     {
-        //Animate();
+        Cup.GetComponent<Image>().enabled = false;
+        SHOWAD = PlayerPrefs.GetInt("SHOWAD", 0);
+        SHOWAD +=1;
+        PlayerPrefs.SetInt("SHOWAD", SHOWAD);
     }
 
     public void Animate(bool winGame, int star, int levelCoins)
@@ -24,10 +28,12 @@ public class GameOverPanel : MonoBehaviour
         if(winGame)
         {
             txtResult.text = "WINNER";
+            Cup.GetComponent<Image>().enabled = true;
         }
         else
         {
             txtResult.text = "TRY AGAIN";
+            Cup.GetComponent<Image>().enabled = false;
         }
         
         Button3_RewardAd.SetActive(winGame);
@@ -47,21 +53,28 @@ public class GameOverPanel : MonoBehaviour
         Button1.transform.localScale = new Vector3(0f, 0f, 0f);
         Button2.transform.localScale = new Vector3(0f, 0f, 0f);
         Button3_RewardAd.transform.localScale = new Vector3(0f, 0f, 0f);
+        Cup.transform.localScale = new Vector3(0f, 0f, 0f);
 
         LeanTween.alpha(Coins.GetComponent<RectTransform>(), 0f, 0f);
-        LeanTween.moveLocal(Panel, new Vector3(0f, 0f, 0f), 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutCirc);
-        LeanTween.scale(Header, new Vector3(1f, 1f, 1f), 1.5f).setDelay(1.5f).setEase(LeanTweenType.easeOutElastic);
-        LeanTween.alpha(Coins.GetComponent<RectTransform>(), 1f, 0.5f).setDelay(2.5f);
+        LeanTween.moveLocal(Panel, new Vector3(0f, 0f, 0f), 0.5f).setDelay(0.5f).setEase(LeanTweenType.easeOutCirc);
+        LeanTween.scale(Header, new Vector3(1f, 1f, 1f), 1.0f).setDelay(1.5f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.scale(Cup, new Vector3(1.25f, 1.25f, 1f), 0.5f).setDelay(1.5f).setEase(LeanTweenType.easeOutCirc);
+        LeanTween.alpha(Coins.GetComponent<RectTransform>(), 1f, 0.5f).setDelay(2.0f);
         
-        LeanTween.scale(Stars[0], new Vector3(1f, 1f, 1f), 1f).setDelay(3.0f).setEase(LeanTweenType.easeOutElastic);
-        LeanTween.scale(Stars[1], new Vector3(1f, 1f, 1f), 1f).setDelay(3.25f).setEase(LeanTweenType.easeOutElastic);
-        LeanTween.scale(Stars[2], new Vector3(1f, 1f, 1f), 1f).setDelay(3.5f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.scale(Stars[0], new Vector3(1f, 1f, 1f), 1f).setDelay(2.5f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.scale(Stars[1], new Vector3(1f, 1f, 1f), 1f).setDelay(2.75f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.scale(Stars[2], new Vector3(1f, 1f, 1f), 1f).setDelay(3.0f).setEase(LeanTweenType.easeOutElastic);
 
-        LeanTween.scale(Button3_RewardAd, new Vector3(1f, 1f, 1f), 0.5f).setDelay(4.0f).setEase(LeanTweenType.easeOutCirc);        
-        LeanTween.scale(Button1, new Vector3(1f, 1f, 1f), 0.5f).setDelay(4.5f).setEase(LeanTweenType.easeOutCirc);
-        LeanTween.scale(Button2, new Vector3(1f, 1f, 1f), 0.5f).setDelay(4.5f).setEase(LeanTweenType.easeOutCirc);
+        LeanTween.scale(Button3_RewardAd, new Vector3(1f, 1f, 1f), 0.5f).setDelay(3.5f).setEase(LeanTweenType.easeOutCirc);        
+        LeanTween.scale(Button1, new Vector3(1f, 1f, 1f), 0.5f).setDelay(4.0f).setEase(LeanTweenType.easeOutCirc);
+        LeanTween.scale(Button2, new Vector3(1f, 1f, 1f), 0.5f).setDelay(4.0f).setEase(LeanTweenType.easeOutCirc);
 
-        StartCoroutine(ShowInterstitalAd());
+        if(SHOWAD>=2)
+        {
+            PlayerPrefs.SetInt("SHOWAD", 0);
+            StartCoroutine(ShowInterstitalAd());
+        }
+        
     }
 
     public void UpdateCoinsTxt(int coinAmt)

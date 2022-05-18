@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelDBLoader : MonoBehaviour
 {
@@ -25,6 +26,5 @@ public class LevelDBLoader : MonoBehaviour
         score = currentLevel.score;
         darts = currentLevel.darts;
         rewardCoins = currentLevel.rewardCoins;
-    }
-   
+    }   
 }

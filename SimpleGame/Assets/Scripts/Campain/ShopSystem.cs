@@ -8,6 +8,7 @@ public class ShopSystem : MonoBehaviour
     [SerializeField] Text txtCoins;
     [SerializeField] DartCardDisplay dartCardDisplay;
     private int totalCoins;
+    [SerializeField] GameObject Message;
 
     void Start()
     {
@@ -25,17 +26,25 @@ public class ShopSystem : MonoBehaviour
         {
             totalCoins -= price;
             PlayerPrefs.SetInt("DART" + dartIndex, 1);
+            PlayerPrefs.SetInt("COINS", totalCoins);
             UpdateCoinsTxt();
             dartCardDisplay.CheckUnlockStatus();
         }
         else
         {
-            Debug.Log("NOT ENOUGH COINS");
+            StartCoroutine(MessageUpdate());
         }
     }
 
     private void UpdateCoinsTxt()
     {
         txtCoins.text = totalCoins.ToString();
+    }
+
+    IEnumerator MessageUpdate()
+    {
+        Message.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        Message.SetActive(false);
     }
 }

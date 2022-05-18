@@ -9,7 +9,6 @@ public class TargetTA : MonoBehaviour
     public GameObject Player;
     private int score;
     private float targetLength = 0.625f;
-    private float changeSpeedTime, changeSpeedTimeInterval = 5f;
     private float randomSpeed = 1, randomHeight = 3.5f;
     [SerializeField] float minHeight = 1.0f, maxHeight = 2.75f, minSpeed = 0.5f, maxSpeed = 2.0f;
     float ScreenEdge, speedAdjustForScreen;
@@ -33,23 +32,6 @@ public class TargetTA : MonoBehaviour
         animator = GetComponent<Animator>();
         randomSpeed = Random.Range(minSpeed, maxSpeed);
     }
-
-    /*void Update()
-    {
-        if(!stopMoving)
-        {
-        if(Time.time < changeSpeedTimeInterval)
-        {  
-          OscillateRandom(randomSpeed);
-        }
-        else
-        {
-            changeSpeedTimeInterval = Time.time + Random.Range(2, 6f);
-            randomSpeed = Random.Range(minSpeed, maxSpeed);
-        }
-        }
-        
-    }*/
 
     void FixedUpdate()
     {
@@ -81,26 +63,6 @@ public class TargetTA : MonoBehaviour
             randomSpeed = Random.Range(minSpeed, maxSpeed);
         }        
     }
-
-    /*private void OscillateRandom(float speedAmt)
-    {
-        
-        transform.Translate(Time.deltaTime * speedAmt * speedAdjustForScreen * direction, 0, 0);
-        
-        if(transform.position.x <= -ScreenEdge)
-        {
-            direction = 1;
-            randomHeight = Random.Range(minHeight, maxHeight);
-            transform.position = new Vector3(transform.position.x, randomHeight, 0);
-        }
-       
-        if (transform.position.x >= ScreenEdge)
-        {
-            direction = -1;
-            randomHeight = Random.Range(minHeight, maxHeight);
-            transform.position = new Vector3(transform.position.x, randomHeight, 0);
-        }        
-    }*/
 
     private void OnCollisionEnter2D(Collision2D other)
     {
